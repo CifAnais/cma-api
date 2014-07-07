@@ -70,7 +70,36 @@
 
 - (void)fetchUsers
 {
+    NSDictionary *params;
     
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users", kAPIUrl];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager GET:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *data = responseObject;
+        
+        if(data[@"data"]){
+            
+            __block NSMutableArray *users = [[NSMutableArray alloc] init];
+            
+            [(NSArray *)data[@"data"] enumerateObjectsUsingBlock:^(id objUser, NSUInteger idx, BOOL *stop) {
+                if([objUser isKindOfClass:[NSDictionary class]]){
+                    [users addObject:[User parserUser:objUser]];
+                }
+            }];
+            
+            if([self.delegate respondsToSelector:@selector(apiFetchingUsers:)]){
+                [self.delegate apiFetchingUsers:users];
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if([self.delegate respondsToSelector:@selector(apiFetchingUsersFailedWithError:)]){
+            [self.delegate apiFetchingUsersFailedWithError:error];
+        }
+    }];
 }
 
 

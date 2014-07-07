@@ -10,6 +10,9 @@
 
 @interface User : NSObject
 
+@property (nonatomic, strong) NSNumber *userId;
+@property (nonatomic, strong) NSString *username;
+
 + (User *)parserUser:(NSDictionary *)objUser;
 
 @end

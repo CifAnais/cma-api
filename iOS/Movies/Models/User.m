@@ -12,7 +12,10 @@
 
 + (User *)parserUser:(NSDictionary *)objUser
 {
-    User *user;
+    User *user = [User new];
+    
+    user.userId = objUser[@"id"] ? objUser[@"id"] : nil;
+    user.username = objUser[@"username"] ? objUser[@"username"] : nil;
     
     return user;
 }
