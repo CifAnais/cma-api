@@ -1,7 +1,7 @@
 # API
 ## Endpoints
 ### Users 
-#### GET /users 
+#### GET /v1/users 
 
 Récupérer la liste des utilisateurs.
 
@@ -26,11 +26,11 @@ Récupérer la liste des utilisateurs.
 
 ```
 
-#### POST /users
+#### POST /v1/users
 
 Créer un utilisateur.
 
-#### GET /users/:user_id
+#### GET /v1/users/:user_id
 
 Récupérer le profil d'un utilisateur.
 
@@ -53,15 +53,15 @@ Récupérer le profil d'un utilisateur.
 
 ```
 
-#### PUT /users/:user_id
+#### PUT /v1/users/:user_id
 
 Mettre à jour le profil de l'utilisateur.
 
-#### DELETE /users/:user_id
+#### DELETE /v1/users/:user_id
 
 Supprimer l'utilisateur.
 
-#### GET /users/:user_id/likes
+#### GET /v1/users/:user_id/likes
 
 Récupérer la liste des films aimés par l'utilisateur.
 
@@ -81,15 +81,15 @@ Récupérer la liste des films aimés par l'utilisateur.
 }
 ```
 
-#### POST /users/:user_id/likes/:movie_id  
+#### POST /v1/users/:user_id/likes/:movie_id  
 
 Action : aimer un film.
 
-#### DELETE /users/:user_id/likes/:movie_id  
+#### DELETE /v1/users/:user_id/likes/:movie_id  
 
 Action: ne plus aimer un film.
 
-#### GET /users/:user_id/dislikes 
+#### GET /v1/users/:user_id/dislikes 
 
 Récupérer la liste des films que l'utilisateur n'aime pas.
 
@@ -109,15 +109,15 @@ Récupérer la liste des films que l'utilisateur n'aime pas.
 }
 ```
 
-#### POST /users/:user_id/dislikes/:movie_id
+#### POST /v1/users/:user_id/dislikes/:movie_id
 
 Action : ne pas aimer un film.
 
-#### DELETE /users/:user_id/dislikes/:movie_id
+#### DELETE /v1/users/:user_id/dislikes/:movie_id
 
 Action : supprimer action 'ne pas aimer un film'.
 
-#### GET /users/:user_id/watched
+#### GET /v1/users/:user_id/watched
 
 Récupérer la liste des films vus par l'utilisateur.
 
@@ -137,16 +137,16 @@ Récupérer la liste des films vus par l'utilisateur.
 }
 ```
 
-#### POST /users/:user_id/watched/:movie_id
+#### POST /v1/users/:user_id/watched/:movie_id
 
 Action : ajouter un film vu.
 
-#### DELETE /users/:user_id/watched/:movie_id
+#### DELETE /v1/users/:user_id/watched/:movie_id
 
 Action : supprimer un film vu.
 
 
-#### GET /users/:user_id/watchlist
+#### GET /v1/users/:user_id/watchlist
 
 Récupérer la liste des films que l'utilisateur aimerait voir.
 
@@ -166,15 +166,15 @@ Récupérer la liste des films que l'utilisateur aimerait voir.
 }
 ```
 
-#### POST /users/:user_id/watchlist/:movie_id
+#### POST /v1/users/:user_id/watchlist/:movie_id
 
 Action : ajouter un film à voir.
 
-#### DELETE /users/:user_id/watchlist/:movie_id
+#### DELETE /v1/users/:user_id/watchlist/:movie_id
 
 Action : supprimer un film à voir.
 
-#### GET /users/:user_id/follow  
+#### GET /v1/users/:user_id/followed  
 
 Récupérer la liste des utilisateurs suivis par l'utilisateur.
 
@@ -194,15 +194,15 @@ Récupérer la liste des utilisateurs suivis par l'utilisateur.
 }
 ```
 
-#### POST /users/:user_id/follow/:user_id
+#### POST /v1/users/:user_id/followed/:user_id
 
 Action : suivre un utilisateur.
 
-#### DELETE /users/:user_id/follow/:user_id
+#### DELETE /v1/users/:user_id/followed/:user_id
 
 Action : ne plus suivre un utilisateur.
 
-#### GET /users/:user_id/followers 
+#### GET /v1/users/:user_id/followers 
 
 ```
 {
@@ -222,7 +222,7 @@ Action : ne plus suivre un utilisateur.
 
 ### Movies
 
-#### GET /movies
+#### GET /v1/movies
 
 Récupérer la liste de tous les films.
 
@@ -242,11 +242,11 @@ Récupérer la liste de tous les films.
 }
 ```
 
-#### POST /movies
+#### POST /v1/movies
 
 Ajouter un film.
 
-#### GET /movies/:movie_id
+#### GET /v1/movies/:movie_id
 
 Récupérer la fiche d'un film.
 
@@ -262,17 +262,17 @@ Récupérer la fiche d'un film.
 
 ```
 
-#### PUT /movies/:movie_id
+#### PUT /v1/movies/:movie_id
 
 Mettre à jour la fiche d'un film
 
-#### DELETE /movies/:movie_id
+#### DELETE /v1/movies/:movie_id
 
 Supprimer la fiche d'un film
 
 ### Search
 
-#### GET /search?q=:recherche&type=movies|users
+#### GET /v1/search?q=:recherche&type=movies|users
 
 Rechercher un film ou un utilisateur
 
