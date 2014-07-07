@@ -1,7 +1,12 @@
 # API
+
+## Description
+
+* L'API possède un système de versionning de type "/v1", à ajouter avant chaque URI.   
+
 ## Endpoints
 ### Users 
-#### GET /v1/users 
+#### GET /users 
 
 Récupérer la liste des utilisateurs.
 
@@ -26,11 +31,11 @@ Récupérer la liste des utilisateurs.
 
 ```
 
-#### POST /v1/users
+#### POST /users
 
 Créer un utilisateur.
 
-#### GET /v1/users/:user_id
+#### GET /users/:user_id
 
 Récupérer le profil d'un utilisateur.
 
@@ -53,15 +58,15 @@ Récupérer le profil d'un utilisateur.
 
 ```
 
-#### PUT /v1/users/:user_id
+#### PUT /users/:user_id
 
 Mettre à jour le profil de l'utilisateur.
 
-#### DELETE /v1/users/:user_id
+#### DELETE /users/:user_id
 
 Supprimer l'utilisateur.
 
-#### GET /v1/users/:user_id/likes
+#### GET /users/:user_id/likes
 
 Récupérer la liste des films aimés par l'utilisateur.
 
@@ -81,15 +86,15 @@ Récupérer la liste des films aimés par l'utilisateur.
 }
 ```
 
-#### POST /v1/users/:user_id/likes/:movie_id  
+#### POST /users/:user_id/likes/:movie_id  
 
 Action : aimer un film.
 
-#### DELETE /v1/users/:user_id/likes/:movie_id  
+#### DELETE /users/:user_id/likes/:movie_id  
 
 Action: ne plus aimer un film.
 
-#### GET /v1/users/:user_id/dislikes 
+#### GET /users/:user_id/dislikes 
 
 Récupérer la liste des films que l'utilisateur n'aime pas.
 
@@ -109,15 +114,15 @@ Récupérer la liste des films que l'utilisateur n'aime pas.
 }
 ```
 
-#### POST /v1/users/:user_id/dislikes/:movie_id
+#### POST /users/:user_id/dislikes/:movie_id
 
 Action : ne pas aimer un film.
 
-#### DELETE /v1/users/:user_id/dislikes/:movie_id
+#### DELETE /users/:user_id/dislikes/:movie_id
 
 Action : supprimer action 'ne pas aimer un film'.
 
-#### GET /v1/users/:user_id/watched
+#### GET /users/:user_id/watched
 
 Récupérer la liste des films vus par l'utilisateur.
 
@@ -137,16 +142,16 @@ Récupérer la liste des films vus par l'utilisateur.
 }
 ```
 
-#### POST /v1/users/:user_id/watched/:movie_id
+#### POST /users/:user_id/watched/:movie_id
 
 Action : ajouter un film vu.
 
-#### DELETE /v1/users/:user_id/watched/:movie_id
+#### DELETE /users/:user_id/watched/:movie_id
 
 Action : supprimer un film vu.
 
 
-#### GET /v1/users/:user_id/watchlist
+#### GET /users/:user_id/watchlist
 
 Récupérer la liste des films que l'utilisateur aimerait voir.
 
@@ -166,15 +171,15 @@ Récupérer la liste des films que l'utilisateur aimerait voir.
 }
 ```
 
-#### POST /v1/users/:user_id/watchlist/:movie_id
+#### POST /users/:user_id/watchlist/:movie_id
 
 Action : ajouter un film à voir.
 
-#### DELETE /v1/users/:user_id/watchlist/:movie_id
+#### DELETE /users/:user_id/watchlist/:movie_id
 
 Action : supprimer un film à voir.
 
-#### GET /v1/users/:user_id/followed  
+#### GET /users/:user_id/followed  
 
 Récupérer la liste des utilisateurs suivis par l'utilisateur.
 
@@ -194,15 +199,15 @@ Récupérer la liste des utilisateurs suivis par l'utilisateur.
 }
 ```
 
-#### POST /v1/users/:user_id/followed/:user_id
+#### POST /users/:user_id/followed/:user_id
 
 Action : suivre un utilisateur.
 
-#### DELETE /v1/users/:user_id/followed/:user_id
+#### DELETE /users/:user_id/followed/:user_id
 
 Action : ne plus suivre un utilisateur.
 
-#### GET /v1/users/:user_id/followers 
+#### GET /users/:user_id/followers 
 
 ```
 {
@@ -222,7 +227,7 @@ Action : ne plus suivre un utilisateur.
 
 ### Movies
 
-#### GET /v1/movies
+#### GET /movies
 
 Récupérer la liste de tous les films.
 
@@ -242,11 +247,11 @@ Récupérer la liste de tous les films.
 }
 ```
 
-#### POST /v1/movies
+#### POST /movies
 
 Ajouter un film.
 
-#### GET /v1/movies/:movie_id
+#### GET /movies/:movie_id
 
 Récupérer la fiche d'un film.
 
@@ -262,17 +267,17 @@ Récupérer la fiche d'un film.
 
 ```
 
-#### PUT /v1/movies/:movie_id
+#### PUT /movies/:movie_id
 
 Mettre à jour la fiche d'un film.
 
-#### DELETE /v1/movies/:movie_id
+#### DELETE /movies/:movie_id
 
 Supprimer la fiche d'un film.
 
 ### Search
 
-#### GET /v1/search?q=:recherche&type=movies|users
+#### GET /search?q=:recherche&type=movies|users
 
 Rechercher un film ou un utilisateur.
 
