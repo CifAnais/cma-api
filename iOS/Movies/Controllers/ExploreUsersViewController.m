@@ -88,6 +88,11 @@ static NSString *kExploreUserCellIdentifier = @"kExploreUserCellIdentifier";
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 
 #pragma mark - Refresh Control
 - (void)refreshControlAction
