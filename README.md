@@ -264,17 +264,17 @@ Récupérer la fiche d'un film.
 
 #### PUT /v1/movies/:movie_id
 
-Mettre à jour la fiche d'un film
+Mettre à jour la fiche d'un film.
 
 #### DELETE /v1/movies/:movie_id
 
-Supprimer la fiche d'un film
+Supprimer la fiche d'un film.
 
 ### Search
 
 #### GET /v1/search?q=:recherche&type=movies|users
 
-Rechercher un film ou un utilisateur
+Rechercher un film ou un utilisateur.
 
 
 ## Représentations
