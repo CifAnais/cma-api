@@ -1,0 +1,37 @@
+{
+	"meta":{
+		"code":200
+	},
+	"data":[
+		{
+			"id":1,
+			"title": "Palo Alto",
+			"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/palo-alto.jpg",
+			"genre":"drama"
+		},
+		{
+			"id":2,
+			"title": "Bell Flower",
+			"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/bell-flower.jpg",
+			"genre":"action"
+		},
+		{
+			"id":3,
+			"title": "Somewhere",
+			"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/somewhere.jpg",
+			"genre":"comedy"
+		},
+		{
+			"id":4,
+			"title": "Her",
+			"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/her.jpg",
+			"genre":"romance"
+		},
+		{
+			"id":5,
+			"title": "Drive",
+			"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/drive.jpg",
+			"genre":"thriller"
+		}
+	]
+}
