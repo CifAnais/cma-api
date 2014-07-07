@@ -236,11 +236,15 @@ Récupérer la liste de tous les films.
 	"data": [
 		{
 			"id": "3",
-			"title": "Jimmy's Hall"
+			"title": "Jimmy's Hall",
+			"cover":"http://domain.com/cover.png",
+			"genre":"comedy"
 		},
 		{
 			"id": "23",
-			"title": "Dragons 2"
+			"title": "Dragons 2",
+			"cover":"http://domain.com/cover.png",
+			"genre":"animation"
 		},
 		{...}
 	]
@@ -260,7 +264,9 @@ Récupérer la fiche d'un film.
 	"data": [
 		{
 			"id": "1",
-			"title": "X-men"
+			"title": "X-men",
+			"cover":"http://domain.com/cover.png",
+			"genre":"action"
 		}
 	]
 }
