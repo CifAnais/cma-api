@@ -26,6 +26,11 @@
 		B0550671196AB14D00DC105F /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = B0550670196AB14D00DC105F /* Movie.m */; };
 		B0550674196AB18700DC105F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B0550673196AB18700DC105F /* User.m */; };
 		B05506BB196AE53E00DC105F /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B05506BA196AE53E00DC105F /* MovieCollectionCell.m */; };
+		B05506BE196AEC5A00DC105F /* tabBar-movie-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B05506BD196AEC5A00DC105F /* tabBar-movie-icon@2x.png */; };
+		B05506C1196AEDE500DC105F /* tabBar-profile-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B05506BF196AEDE500DC105F /* tabBar-profile-icon@2x.png */; };
+		B05506C2196AEDE500DC105F /* tabBar-explore-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B05506C0196AEDE500DC105F /* tabBar-explore-icon@2x.png */; };
+		B05506C5196AEDFF00DC105F /* ExploreUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05506C4196AEDFF00DC105F /* ExploreUsersViewController.m */; };
+		B05506C8196AEE2C00DC105F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05506C7196AEE2C00DC105F /* ProfileViewController.m */; };
 		CD798CD77D3A486FB5635BDF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAAB98C8C5D84FD190629337 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +76,13 @@
 		B0550673196AB18700DC105F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		B05506B9196AE53E00DC105F /* MovieCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCollectionCell.h; sourceTree = "<group>"; };
 		B05506BA196AE53E00DC105F /* MovieCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionCell.m; sourceTree = "<group>"; };
+		B05506BD196AEC5A00DC105F /* tabBar-movie-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar-movie-icon@2x.png"; sourceTree = "<group>"; };
+		B05506BF196AEDE500DC105F /* tabBar-profile-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar-profile-icon@2x.png"; sourceTree = "<group>"; };
+		B05506C0196AEDE500DC105F /* tabBar-explore-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar-explore-icon@2x.png"; sourceTree = "<group>"; };
+		B05506C3196AEDFF00DC105F /* ExploreUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreUsersViewController.h; sourceTree = "<group>"; };
+		B05506C4196AEDFF00DC105F /* ExploreUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreUsersViewController.m; sourceTree = "<group>"; };
+		B05506C6196AEE2C00DC105F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		B05506C7196AEE2C00DC105F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		D11A4C43D18F42C6813DE9BD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		EAAB98C8C5D84FD190629337 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -182,6 +194,7 @@
 		B03CBF54196AABF200EAAE33 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				B05506BC196AEC5A00DC105F /* TabBar */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -204,6 +217,10 @@
 				B03CBF5E196AAD4D00EAAE33 /* MoviesViewController.m */,
 				B03CBF60196AAD5D00EAAE33 /* MovieViewController.h */,
 				B03CBF61196AAD5D00EAAE33 /* MovieViewController.m */,
+				B05506C3196AEDFF00DC105F /* ExploreUsersViewController.h */,
+				B05506C4196AEDFF00DC105F /* ExploreUsersViewController.m */,
+				B05506C6196AEE2C00DC105F /* ProfileViewController.h */,
+				B05506C7196AEE2C00DC105F /* ProfileViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -233,6 +250,16 @@
 				B05506BA196AE53E00DC105F /* MovieCollectionCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B05506BC196AEC5A00DC105F /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				B05506BF196AEDE500DC105F /* tabBar-profile-icon@2x.png */,
+				B05506C0196AEDE500DC105F /* tabBar-explore-icon@2x.png */,
+				B05506BD196AEC5A00DC105F /* tabBar-movie-icon@2x.png */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,8 +339,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B05506BE196AEC5A00DC105F /* tabBar-movie-icon@2x.png in Resources */,
 				B03CBF30196AA9E100EAAE33 /* InfoPlist.strings in Resources */,
+				B05506C1196AEDE500DC105F /* tabBar-profile-icon@2x.png in Resources */,
 				B03CBF38196AA9E100EAAE33 /* Images.xcassets in Resources */,
+				B05506C2196AEDE500DC105F /* tabBar-explore-icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,8 +400,10 @@
 				B03CBF62196AAD5D00EAAE33 /* MovieViewController.m in Sources */,
 				B0550671196AB14D00DC105F /* Movie.m in Sources */,
 				B03CBF5C196AAC6A00EAAE33 /* TabBarViewController.m in Sources */,
+				B05506C5196AEDFF00DC105F /* ExploreUsersViewController.m in Sources */,
 				B05506BB196AE53E00DC105F /* MovieCollectionCell.m in Sources */,
 				B055066E196AAE7B00DC105F /* CFAPI.m in Sources */,
+				B05506C8196AEE2C00DC105F /* ProfileViewController.m in Sources */,
 				B03CBF32196AA9E100EAAE33 /* main.m in Sources */,
 				B03CBF5F196AAD4D00EAAE33 /* MoviesViewController.m in Sources */,
 			);
