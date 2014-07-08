@@ -4,6 +4,7 @@ require("libs/toro.php");
 require("components/api.php");
 require("controllers/MoviesController.php");
 require("controllers/UsersController.php");
+require("controllers/GenresController.php");
 
 ToroHook::add("404", function() {
     API::status(404);
@@ -12,5 +13,6 @@ ToroHook::add("404", function() {
 
 Toro::serve(array(
     '/movies' => 'MoviesController',
-    '/users' => 'UsersController'
+    '/users' => 'UsersController',
+    '/genres' => 'GenresController',
 ));
