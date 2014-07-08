@@ -45,6 +45,20 @@ Créer un utilisateur.
 | ------ | ---- | ----- |
 | username | string | | 
 
+**Réponse**
+
+```
+{
+	"data": [
+		{
+			"id": "20",
+			"username": "Clément"
+		}
+	]
+}
+
+```
+
 #### GET /users/:user_id
 
 Récupérer le profil d'un utilisateur.
@@ -76,9 +90,30 @@ Mettre à jour le profil de l'utilisateur.
 | ------ | ---- | ----- |
 | username | string | |
 
+**Réponse**
+
+```
+{
+	"data": [
+		{
+			"id": "20",
+			"username": "Clément",
+			"counts": [
+				{ "likes_count": "3" },
+				{ "dislikes_count": "0" },
+				{ "watched_count": "12" },
+				{ "watchlist_count": "36" }
+			]
+		}
+	]
+}
+
+```
+
 #### DELETE /users/:user_id
 
 Supprimer l'utilisateur.
+
 
 #### GET /users/:user_id/likes
 
@@ -275,6 +310,22 @@ Ajouter un film.
 | cover | string | | 
 | genre | int | ID Genre | 
 
+**Réponse**
+
+```
+{
+	"data": [
+		{
+			"id": "3",
+			"title": "Jimmy's Hall",
+			"cover":"http://domain.com/cover.png",
+			"genre":2
+		}
+	]
+}
+```
+
+
 #### GET /movies/:movie_id
 
 Récupérer la fiche d'un film.
@@ -303,6 +354,21 @@ Mettre à jour la fiche d'un film.
 | cover | string | | 
 | genre | int | ID Genre |  
 
+**Réponse**
+
+```
+{
+	"data": [
+		{
+			"id": "3",
+			"title": "Jimmy's Hall",
+			"cover":"http://domain.com/cover.png",
+			"genre":2
+		}
+	]
+}
+```
+
 #### DELETE /movies/:movie_id
 
 Supprimer la fiche d'un film.
@@ -317,6 +383,27 @@ Rechercher un film ou un utilisateur.
 | q | string | |
 | type | string | **movies** ou **users** |
 
+**Réponse**
+
+```
+{
+	"data": [
+		{
+			"id": "3",
+			"title": "Jimmy's Hall",
+			"cover":"http://domain.com/cover.png",
+			"genre":2
+		},
+		{
+			"id": "3",
+			"title": "Jimmy's Hall",
+			"cover":"http://domain.com/cover.png",
+			"genre":2
+		},
+		{...}	
+	]
+}
+```
 
 ### Genre
 
