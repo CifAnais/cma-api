@@ -13,25 +13,55 @@
 			"id":2,
 			"title": "Bell Flower",
 			"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/bell-flower.jpg",
-			"genre":"action"
+			"genre":1
 		},
 		{
 			"id":3,
 			"title": "Somewhere",
 			"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/somewhere.jpg",
-			"genre":"comedy"
+			"genre":2
 		},
 		{
 			"id":4,
 			"title": "Her",
 			"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/her.jpg",
-			"genre":"romance"
+			"genre":4
 		},
 		{
 			"id":5,
 			"title": "Drive",
 			"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/drive.jpg",
-			"genre":"thriller"
+			"genre":5
+		},
+		{
+			"id":6,
+			"title": "The Town",
+			"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/the-town.jpg",
+			"genre":5
+		},
+		{
+			"id":7,
+			"title": "Coldwater",
+			"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/coldwater.jpg",
+			"genre":3
+		},
+		{
+			"id":8,
+			"title": "Lucy",
+			"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/lucy.jpg",
+			"genre":1
+		},
+		{
+			"id":9,
+			"title": "Sex Tape",
+			"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/sex-tape.jpg",
+			"genre":2
+		},
+		{
+			"id":10,
+			"title": "The Social Network",
+			"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/the-social-network.jpg",
+			"genre":3
 		}
 	]
 }
