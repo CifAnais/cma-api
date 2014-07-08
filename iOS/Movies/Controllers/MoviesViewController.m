@@ -8,9 +8,10 @@
 
 #import "MoviesViewController.h"
 #import "MovieCollectionCell.h"
+#import "AddMovieViewController.h"
 #import "CFAPI.h"
 
-@interface MoviesViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,CFAPIDelegate>
+@interface MoviesViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AddMovieDelegate, CFAPIDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
@@ -34,6 +35,8 @@
     
     self.navigationItem.title = @"Movies";
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addMovieAction)];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
@@ -107,7 +110,6 @@
     self.data = movies;
     
     [self.refreshControl endRefreshing];
-    
     [self.collectionView reloadData];
 }
 
@@ -116,6 +118,24 @@
     NSLog(@"apiFetchingMoviesFailedWithError");
     
     [self.refreshControl endRefreshing];
+}
+
+#pragma mark - Add Movie
+- (void)addMovieAction
+{
+    AddMovieViewController *addMovieVC = [[AddMovieViewController alloc] init];
+    addMovieVC.delegate = self;
+    UINavigationController *addMovieNav = [[UINavigationController alloc] initWithRootViewController:addMovieVC];
+    
+    [self.tabBarController presentViewController:addMovieNav animated:YES completion:^{}];
+}
+
+
+#pragma mark - AddMovie Delegate
+- (void)addMovieSuccess
+{
+    [CFAPI shared].delegate = self;
+    [[CFAPI shared] fetchMovies];
 }
 
 @end

@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSNumber *movieId;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *coverURL;
-@property (nonatomic, strong) NSString *genre;
+@property (nonatomic, strong) NSNumber *genre;
 
 + (Movie *)parserMovie:(NSDictionary *)objMovie;
 

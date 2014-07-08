@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Movie.h"
 #import "User.h"
+#import "Genre.h"
 
 @protocol CFAPIDelegate <NSObject>
 
@@ -18,6 +19,12 @@
 
 - (void)apiFetchingUsers:(NSArray *)users;
 - (void)apiFetchingUsersFailedWithError:(NSError *)error;
+
+- (void)apiFetchingGenres:(NSArray *)genres;
+- (void)apiFetchingGenresFailedWithError:(NSError *)error;
+
+- (void)apiPostingMovieSuccess:(Movie *)movie;
+- (void)apiPostingMovieFailedWithError:(NSError *)error;
 @end
 
 
@@ -29,4 +36,7 @@
 
 - (void)fetchMovies;
 - (void)fetchUsers;
+- (void)fetchGenres;
+
+- (void)postMovie:(Movie *)movie Genre:(Genre *)genre;
 @end

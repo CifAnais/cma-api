@@ -31,6 +31,9 @@
 		B05506C2196AEDE500DC105F /* tabBar-explore-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B05506C0196AEDE500DC105F /* tabBar-explore-icon@2x.png */; };
 		B05506C5196AEDFF00DC105F /* ExploreUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05506C4196AEDFF00DC105F /* ExploreUsersViewController.m */; };
 		B05506C8196AEE2C00DC105F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05506C7196AEE2C00DC105F /* ProfileViewController.m */; };
+		B08CFAF1196BF090008AFEA6 /* AddMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B08CFAF0196BF090008AFEA6 /* AddMovieViewController.m */; };
+		B08CFAF4196C11BF008AFEA6 /* AddMovieGenreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B08CFAF3196C11BF008AFEA6 /* AddMovieGenreViewController.m */; };
+		B08CFAF7196C11F2008AFEA6 /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = B08CFAF6196C11F2008AFEA6 /* Genre.m */; };
 		CD798CD77D3A486FB5635BDF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAAB98C8C5D84FD190629337 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +86,12 @@
 		B05506C4196AEDFF00DC105F /* ExploreUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreUsersViewController.m; sourceTree = "<group>"; };
 		B05506C6196AEE2C00DC105F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		B05506C7196AEE2C00DC105F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		B08CFAEF196BF090008AFEA6 /* AddMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMovieViewController.h; sourceTree = "<group>"; };
+		B08CFAF0196BF090008AFEA6 /* AddMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMovieViewController.m; sourceTree = "<group>"; };
+		B08CFAF2196C11BF008AFEA6 /* AddMovieGenreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMovieGenreViewController.h; sourceTree = "<group>"; };
+		B08CFAF3196C11BF008AFEA6 /* AddMovieGenreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMovieGenreViewController.m; sourceTree = "<group>"; };
+		B08CFAF5196C11F2008AFEA6 /* Genre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genre.h; sourceTree = "<group>"; };
+		B08CFAF6196C11F2008AFEA6 /* Genre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Genre.m; sourceTree = "<group>"; };
 		D11A4C43D18F42C6813DE9BD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		EAAB98C8C5D84FD190629337 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -221,6 +230,10 @@
 				B05506C4196AEDFF00DC105F /* ExploreUsersViewController.m */,
 				B05506C6196AEE2C00DC105F /* ProfileViewController.h */,
 				B05506C7196AEE2C00DC105F /* ProfileViewController.m */,
+				B08CFAEF196BF090008AFEA6 /* AddMovieViewController.h */,
+				B08CFAF0196BF090008AFEA6 /* AddMovieViewController.m */,
+				B08CFAF2196C11BF008AFEA6 /* AddMovieGenreViewController.h */,
+				B08CFAF3196C11BF008AFEA6 /* AddMovieGenreViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -239,6 +252,8 @@
 				B0550670196AB14D00DC105F /* Movie.m */,
 				B0550672196AB18700DC105F /* User.h */,
 				B0550673196AB18700DC105F /* User.m */,
+				B08CFAF5196C11F2008AFEA6 /* Genre.h */,
+				B08CFAF6196C11F2008AFEA6 /* Genre.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -396,8 +411,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0550674196AB18700DC105F /* User.m in Sources */,
+				B08CFAF7196C11F2008AFEA6 /* Genre.m in Sources */,
 				B03CBF36196AA9E100EAAE33 /* AppDelegate.m in Sources */,
+				B08CFAF4196C11BF008AFEA6 /* AddMovieGenreViewController.m in Sources */,
 				B03CBF62196AAD5D00EAAE33 /* MovieViewController.m in Sources */,
+				B08CFAF1196BF090008AFEA6 /* AddMovieViewController.m in Sources */,
 				B0550671196AB14D00DC105F /* Movie.m in Sources */,
 				B03CBF5C196AAC6A00EAAE33 /* TabBarViewController.m in Sources */,
 				B05506C5196AEDFF00DC105F /* ExploreUsersViewController.m in Sources */,

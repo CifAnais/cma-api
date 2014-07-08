@@ -102,5 +102,66 @@
     }];
 }
 
+- (void)fetchGenres
+{
+    NSDictionary *params;
+    
+    NSString *endpoint = [NSString stringWithFormat:@"%@/genres", kAPIUrl];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager GET:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *data = responseObject;
+        
+        if(data[@"data"]){
+            
+            __block NSMutableArray *genres = [[NSMutableArray alloc] init];
+            
+            [(NSArray *)data[@"data"] enumerateObjectsUsingBlock:^(id objGenre, NSUInteger idx, BOOL *stop) {
+                if([objGenre isKindOfClass:[NSDictionary class]]){
+                    [genres addObject:[Genre parserGenre:objGenre]];
+                }
+            }];
+            
+            if([self.delegate respondsToSelector:@selector(apiFetchingGenres:)]){
+                [self.delegate apiFetchingGenres:genres];
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if([self.delegate respondsToSelector:@selector(apiFetchingGenresFailedWithError:)]){
+            [self.delegate apiFetchingGenresFailedWithError:error];
+        }
+    }];
+}
+
+- (void)postMovie:(Movie *)movie Genre:(Genre *)genre
+{
+    NSDictionary *params = @{@"title": movie.title, @"cover" : movie.coverURL ? movie.coverURL : @"", @"genre":genre.genreId};
+    
+    NSString *endpoint = [NSString stringWithFormat:@"%@/movies", kAPIUrl];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager POST:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *data = responseObject;
+        
+        if(data[@"data"]){
+            
+            Movie *movie = [Movie parserMovie:(NSDictionary *)data[@"data"]];
+            
+            if([self.delegate respondsToSelector:@selector(apiPostingMovieSuccess:)]){
+                [self.delegate apiPostingMovieSuccess:movie];
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if([self.delegate respondsToSelector:@selector(apiPostingMovieFailedWithError:)]){
+            [self.delegate apiPostingMovieFailedWithError:error];
+        }
+    }];
+}
 
 @end

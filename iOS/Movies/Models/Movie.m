@@ -15,11 +15,16 @@
     Movie *movie = [Movie new];
     
     movie.movieId = objMovie[@"id"] ? objMovie[@"id"] : nil;
-    movie.title = objMovie[@"title"] ? objMovie[@"id"] : nil;
+    movie.title = objMovie[@"title"] ? objMovie[@"title"] : nil;
     movie.coverURL = objMovie[@"cover"] ? objMovie[@"cover"] : nil;
     movie.genre = objMovie[@"genre"] ? objMovie[@"genre"] : nil;
     
     return movie;
+}
+
+- (NSString *)debugDescription
+{
+    return [NSString stringWithFormat:@"{\n    movieId: %@\n    title: %@\n    coverURL: %@\n    genre: %@\n}", [self.movieId stringValue], self.title, self.coverURL, [self.genre stringValue]];
 }
 
 @end
