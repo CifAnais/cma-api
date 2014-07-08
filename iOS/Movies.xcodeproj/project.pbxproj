@@ -31,6 +31,8 @@
 		B05506C2196AEDE500DC105F /* tabBar-explore-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B05506C0196AEDE500DC105F /* tabBar-explore-icon@2x.png */; };
 		B05506C5196AEDFF00DC105F /* ExploreUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05506C4196AEDFF00DC105F /* ExploreUsersViewController.m */; };
 		B05506C8196AEE2C00DC105F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05506C7196AEE2C00DC105F /* ProfileViewController.m */; };
+		B08A18E0196C43CA00DD547F /* CFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B08A18DF196C43CA00DD547F /* CFUser.m */; };
+		B08A18E3196C4B4200DD547F /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B08A18E2196C4B4200DD547F /* UserViewController.m */; };
 		B08CFAF1196BF090008AFEA6 /* AddMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B08CFAF0196BF090008AFEA6 /* AddMovieViewController.m */; };
 		B08CFAF4196C11BF008AFEA6 /* AddMovieGenreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B08CFAF3196C11BF008AFEA6 /* AddMovieGenreViewController.m */; };
 		B08CFAF7196C11F2008AFEA6 /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = B08CFAF6196C11F2008AFEA6 /* Genre.m */; };
@@ -86,6 +88,10 @@
 		B05506C4196AEDFF00DC105F /* ExploreUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreUsersViewController.m; sourceTree = "<group>"; };
 		B05506C6196AEE2C00DC105F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		B05506C7196AEE2C00DC105F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		B08A18DE196C43CA00DD547F /* CFUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFUser.h; sourceTree = "<group>"; };
+		B08A18DF196C43CA00DD547F /* CFUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFUser.m; sourceTree = "<group>"; };
+		B08A18E1196C4B4200DD547F /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		B08A18E2196C4B4200DD547F /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		B08CFAEF196BF090008AFEA6 /* AddMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMovieViewController.h; sourceTree = "<group>"; };
 		B08CFAF0196BF090008AFEA6 /* AddMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMovieViewController.m; sourceTree = "<group>"; };
 		B08CFAF2196C11BF008AFEA6 /* AddMovieGenreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMovieGenreViewController.h; sourceTree = "<group>"; };
@@ -213,6 +219,8 @@
 			children = (
 				B055066C196AAE7B00DC105F /* CFAPI.h */,
 				B055066D196AAE7B00DC105F /* CFAPI.m */,
+				B08A18DE196C43CA00DD547F /* CFUser.h */,
+				B08A18DF196C43CA00DD547F /* CFUser.m */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -234,6 +242,8 @@
 				B08CFAF0196BF090008AFEA6 /* AddMovieViewController.m */,
 				B08CFAF2196C11BF008AFEA6 /* AddMovieGenreViewController.h */,
 				B08CFAF3196C11BF008AFEA6 /* AddMovieGenreViewController.m */,
+				B08A18E1196C4B4200DD547F /* UserViewController.h */,
+				B08A18E2196C4B4200DD547F /* UserViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -414,6 +424,7 @@
 				B08CFAF7196C11F2008AFEA6 /* Genre.m in Sources */,
 				B03CBF36196AA9E100EAAE33 /* AppDelegate.m in Sources */,
 				B08CFAF4196C11BF008AFEA6 /* AddMovieGenreViewController.m in Sources */,
+				B08A18E0196C43CA00DD547F /* CFUser.m in Sources */,
 				B03CBF62196AAD5D00EAAE33 /* MovieViewController.m in Sources */,
 				B08CFAF1196BF090008AFEA6 /* AddMovieViewController.m in Sources */,
 				B0550671196AB14D00DC105F /* Movie.m in Sources */,
@@ -422,6 +433,7 @@
 				B05506BB196AE53E00DC105F /* MovieCollectionCell.m in Sources */,
 				B055066E196AAE7B00DC105F /* CFAPI.m in Sources */,
 				B05506C8196AEE2C00DC105F /* ProfileViewController.m in Sources */,
+				B08A18E3196C4B4200DD547F /* UserViewController.m in Sources */,
 				B03CBF32196AA9E100EAAE33 /* main.m in Sources */,
 				B03CBF5F196AAD4D00EAAE33 /* MoviesViewController.m in Sources */,
 			);

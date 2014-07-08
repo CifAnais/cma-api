@@ -41,6 +41,16 @@
 - (void)fetchUsers;
 - (void)fetchGenres;
 
+- (void)fetchUser:(User *)user;
+- (void)fetchUserLikes:(User *)user;
+- (void)fetchUserDislikes:(User *)user;
+- (void)fetchUserWatched:(User *)user;
+- (void)fetchUserWatchlist:(User *)user;
+
 - (void)postMovie:(Movie *)movie Genre:(Genre *)genre;
 - (void)deleteMovie:(Movie *)movie;
+
+- (void)postUser:(User *)user;
+- (void)deleteUser:(User *)user;
+
 @end

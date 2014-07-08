@@ -7,6 +7,7 @@
 //
 
 #import "ExploreUsersViewController.h"
+#import "UserViewController.h"
 #import "CFAPI.h"
 #import "User.h"
 
@@ -90,6 +91,8 @@ static NSString *kExploreUserCellIdentifier = @"kExploreUserCellIdentifier";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kExploreUserCellIdentifier];
     }
     
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     cell.textLabel.text = ((User *)self.data[indexPath.row]).username;
     
     return cell;
@@ -98,6 +101,9 @@ static NSString *kExploreUserCellIdentifier = @"kExploreUserCellIdentifier";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    UserViewController *userVC = [[UserViewController alloc] initWithUser:(User *)self.data[indexPath.row]];
+    [self.navigationController pushViewController:userVC animated:YES];
 }
 
 
