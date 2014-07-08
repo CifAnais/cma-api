@@ -35,6 +35,8 @@ Récupérer la liste des utilisateurs.
 
 Créer un utilisateur.
 
+** Data : ** (string) username.
+
 #### GET /users/:user_id
 
 Récupérer le profil d'un utilisateur.
@@ -61,6 +63,8 @@ Récupérer le profil d'un utilisateur.
 #### PUT /users/:user_id
 
 Mettre à jour le profil de l'utilisateur.
+
+** Data : ** (string) username.
 
 #### DELETE /users/:user_id
 
@@ -255,6 +259,8 @@ Récupérer la liste de tous les films.
 
 Ajouter un film.
 
+** Datas : ** (string) title, (url) cover, (string) genre.   
+
 #### GET /movies/:movie_id
 
 Récupérer la fiche d'un film.
@@ -277,6 +283,8 @@ Récupérer la fiche d'un film.
 
 Mettre à jour la fiche d'un film.
 
+** Datas : ** (string) title, (url) cover, (string) genre. 
+
 #### DELETE /movies/:movie_id
 
 Supprimer la fiche d'un film.
@@ -286,6 +294,8 @@ Supprimer la fiche d'un film.
 #### GET /search?q=:recherche&type=movies|users
 
 Rechercher un film ou un utilisateur.
+
+** Datas : ** (string) recherche. 
 
 
 ## Représentations
