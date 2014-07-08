@@ -1,27 +1,22 @@
-{
-    "meta":{
-        "code":200
+[
+    {
+        "id": 1,
+        "username": "Maëlle"
     },
-    "data":[
-        {
-            "id": 1,
-            "username": "Maëlle"
-        },
-        {
-            "id": 2,
-            "username": "Anaïs"
-        },
-        {
-            "id": 3,
-            "username": "Axel"
-        },
-        {
-            "id": 4,
-            "username": "Romain"
-        },
-        {
-            "id": 5,
-            "username": "Florent"
-        }
-    ]
-}
+    {
+        "id": 2,
+        "username": "Anaïs"
+    },
+    {
+        "id": 3,
+        "username": "Axel"
+    },
+    {
+        "id": 4,
+        "username": "Romain"
+    },
+    {
+        "id": 5,
+        "username": "Florent"
+    }
+]

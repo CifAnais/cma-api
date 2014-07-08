@@ -9,7 +9,7 @@ require("controllers/GenresController.php");
 
 ToroHook::add("404", function() {
     API::status(404);
-	API::response(array('meta'=>array('code'=>404, 'error'=>'Not Found')));
+	API::error(404, 'Not Found');
 });
 
 Toro::serve(array(

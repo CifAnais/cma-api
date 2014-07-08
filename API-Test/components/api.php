@@ -8,6 +8,25 @@ class API{
 	}
 
 	static function response($response){
-		print json_encode($response);
+		$json = array(
+			'meta'=>array(
+				'code'=>200
+			),
+			'data'=>$response
+		);
+
+		print json_encode($json);
 	}
+
+	static function error($code, $error){
+		$json = array(
+			'meta'=>array(
+				'code'=>$code,
+				'error'=>$error	
+			)
+		);
+
+		print json_encode($json);
+	}
+
 }

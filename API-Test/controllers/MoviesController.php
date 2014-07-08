@@ -13,13 +13,10 @@ class MoviesController{
             strlen(trim($_POST['title'])) > 0 && $_POST['genre'] > 0){
 
 			$data = array(
-				'meta'=>array('code'=>200),
-				'data'=>array(
-					'id' => 999,
-					'title'=> trim($_POST['title']),
-					'cover'=> isset($_POST['cover']) ? $_POST['cover'] : '',
-					'genre'=> (int)$_POST['genre']
-				)
+				'id' => 999,
+				'title'=> trim($_POST['title']),
+				'cover'=> isset($_POST['cover']) ? $_POST['cover'] : '',
+				'genre'=> (int)$_POST['genre']
 			);
 
 			API::status(200);
