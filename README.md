@@ -65,21 +65,15 @@ Récupérer le profil d'un utilisateur.
 
 ```
 {
-	"data": [
-		{
-			"id": "1",
-			"username": "Maëlle",
-			"counts": [
-				{ "likes_count": "3" },
-				{ "dislikes_count": "0" },
-				{ "watched_count": "12" },
-				{ "watchlist_count": "36" }
-			]
-			
-		}
-	]
+    "data":{
+    	"id": 1,
+        "username": "Maëlle",
+        "likes": 3,
+        "dislikes": 0,
+        "watched": 12,
+        "watchlist": 36
+	}
 }
-
 ```
 
 #### PUT /users/:user_id
