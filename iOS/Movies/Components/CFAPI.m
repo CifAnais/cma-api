@@ -61,9 +61,7 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if([self.delegate respondsToSelector:@selector(apiFetchingMoviesFailedWithError:)]){
-            [self.delegate apiFetchingMoviesFailedWithError:error];
-        }
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
     }];
 }
 
@@ -94,9 +92,7 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if([self.delegate respondsToSelector:@selector(apiFetchingUsersFailedWithError:)]){
-            [self.delegate apiFetchingUsersFailedWithError:error];
-        }
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
     }];
 }
 
@@ -127,9 +123,7 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if([self.delegate respondsToSelector:@selector(apiFetchingGenresFailedWithError:)]){
-            [self.delegate apiFetchingGenresFailedWithError:error];
-        }
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
     }];
 }
 
@@ -154,9 +148,7 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if([self.delegate respondsToSelector:@selector(apiPostingMovieFailedWithError:)]){
-            [self.delegate apiPostingMovieFailedWithError:error];
-        }
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
     }];
 }
 
@@ -174,9 +166,7 @@
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if([self.delegate respondsToSelector:@selector(apiDeletingMovieFailedWithError:)]){
-            [self.delegate apiDeletingMovieFailedWithError:error];
-        }
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
     }];
 }
 

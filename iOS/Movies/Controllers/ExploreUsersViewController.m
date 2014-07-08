@@ -37,6 +37,7 @@ static NSString *kExploreUserCellIdentifier = @"kExploreUserCellIdentifier";
     
     self.navigationItem.title = @"Explore";
     self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addUserAction)];
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -69,6 +70,13 @@ static NSString *kExploreUserCellIdentifier = @"kExploreUserCellIdentifier";
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - UIBarButton
+- (void)addUserAction
+{
+    
 }
 
 

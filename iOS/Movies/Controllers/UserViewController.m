@@ -7,10 +7,15 @@
 //
 
 #import "UserViewController.h"
+#import "CFAPI.h"
 
-@interface UserViewController ()
+@interface UserViewController () <CFAPIDelegate>
 
 @property (nonatomic, strong) User *user;
+
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic, strong) NSArray *data;
 
 @end
 
@@ -32,6 +37,9 @@
     
     self.title = self.user.username;
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [CFAPI shared].delegate = self;
+    [[CFAPI shared] fetchUser:self.user];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,5 +47,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end
