@@ -18,7 +18,7 @@ Récupérer la liste des utilisateurs.
 
 ```
 {
-	"data":
+	"data":[
 		{
 			"id": "1",
 			"username": "Maëlle"
@@ -49,12 +49,10 @@ Créer un utilisateur.
 
 ```
 {
-	"data": [
-		{
-			"id": "20",
-			"username": "Clément"
-		}
-	]
+	"data": {
+		"id": "20",
+		"username": "Clément"
+	}
 }
 
 ```
@@ -65,7 +63,7 @@ Récupérer le profil d'un utilisateur.
 
 ```
 {
-    "data":{
+    "data": {
     	"id": 1,
         "username": "Maëlle",
         "likes": 3,
@@ -88,20 +86,15 @@ Mettre à jour le profil de l'utilisateur.
 
 ```
 {
-	"data": [
-		{
-			"id": "20",
-			"username": "Clément",
-			"counts": [
-				{ "likes_count": "3" },
-				{ "dislikes_count": "0" },
-				{ "watched_count": "12" },
-				{ "watchlist_count": "36" }
-			]
-		}
-	]
+    "data": {
+    	"id": 1,
+        "username": "Maëlle",
+        "likes": 3,
+        "dislikes": 0,
+        "watched": 12,
+        "watchlist": 36
+	}
 }
-
 ```
 
 #### DELETE /users/:user_id
@@ -118,11 +111,15 @@ Récupérer la liste des films aimés par l'utilisateur.
 	"data": [
 		{
 			"id": "3",
-			"title": "La vie aquatique"
+			"title": "Jimmy's Hall",
+			"cover":"http://domain.com/cover.png",
+			"genre":2
 		},
 		{
 			"id": "23",
-			"title": "Transcendance"
+			"title": "Dragons 2",
+			"cover":"http://domain.com/cover.png",
+			"genre":5
 		},
 		{...}
 	]
@@ -146,11 +143,15 @@ Récupérer la liste des films que l'utilisateur n'aime pas.
 	"data": [
 		{
 			"id": "3",
-			"title": "Big bad wolfes"
+			"title": "Jimmy's Hall",
+			"cover":"http://domain.com/cover.png",
+			"genre":2
 		},
 		{
 			"id": "23",
-			"title": "Hunger games"
+			"title": "Dragons 2",
+			"cover":"http://domain.com/cover.png",
+			"genre":5
 		},
 		{...}
 	]
@@ -174,11 +175,15 @@ Récupérer la liste des films vus par l'utilisateur.
 	"data": [
 		{
 			"id": "3",
-			"title": "X-men"
+			"title": "Jimmy's Hall",
+			"cover":"http://domain.com/cover.png",
+			"genre":2
 		},
 		{
 			"id": "23",
-			"title": "Edge of Tomorrow"
+			"title": "Dragons 2",
+			"cover":"http://domain.com/cover.png",
+			"genre":5
 		},
 		{...}
 	]
@@ -203,11 +208,15 @@ Récupérer la liste des films que l'utilisateur aimerait voir.
 	"data": [
 		{
 			"id": "3",
-			"title": "Jimmy's Hall"
+			"title": "Jimmy's Hall",
+			"cover":"http://domain.com/cover.png",
+			"genre":2
 		},
 		{
 			"id": "23",
-			"title": "Dragons 2"
+			"title": "Dragons 2",
+			"cover":"http://domain.com/cover.png",
+			"genre":5
 		},
 		{...}
 	]
@@ -308,14 +317,12 @@ Ajouter un film.
 
 ```
 {
-	"data": [
-		{
-			"id": "3",
-			"title": "Jimmy's Hall",
-			"cover":"http://domain.com/cover.png",
-			"genre":2
-		}
-	]
+	"data": {
+		"id": "3",
+		"title": "Jimmy's Hall",
+		"cover":"http://domain.com/cover.png",
+		"genre":2
+	}
 }
 ```
 
@@ -326,14 +333,12 @@ Récupérer la fiche d'un film.
 
 ```
 {
-	"data": [
-		{
-			"id": "1",
-			"title": "X-men",
-			"cover":"http://domain.com/cover.png",
-			"genre":3
-		}
-	]
+	"data": {
+		"id": "1",
+		"title": "X-men",
+		"cover":"http://domain.com/cover.png",
+		"genre":3
+	}
 }
 
 ```
@@ -352,14 +357,12 @@ Mettre à jour la fiche d'un film.
 
 ```
 {
-	"data": [
-		{
-			"id": "3",
-			"title": "Jimmy's Hall",
-			"cover":"http://domain.com/cover.png",
-			"genre":2
-		}
-	]
+	"data": {
+		"id": "3",
+		"title": "Jimmy's Hall",
+		"cover":"http://domain.com/cover.png",
+		"genre":2
+	}
 }
 ```
 
