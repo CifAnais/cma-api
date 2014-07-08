@@ -438,20 +438,12 @@ Récupérer la liste de tous les genres de film.
 
 ## Endpoints
 ### Movies
-#### GET /movies
+- GET /movies
+- POST /movies
+- DELETE /movies/:id
 
-```
-{
-	"meta":{
-		"code":200
-	},
-	"data":[
-		{
-			"id":1,
-			"title": "Palo Alto",
-			"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/palo-alto.jpg",
-			"genre":"drama"
-		}
-	]
-}
-```
+### Genres
+- GET /genres
+
+### Users
+- GET /users
