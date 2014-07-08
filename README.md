@@ -238,13 +238,13 @@ Récupérer la liste de tous les films.
 			"id": "3",
 			"title": "Jimmy's Hall",
 			"cover":"http://domain.com/cover.png",
-			"genre":"comedy"
+			"genre":2
 		},
 		{
 			"id": "23",
 			"title": "Dragons 2",
 			"cover":"http://domain.com/cover.png",
-			"genre":"animation"
+			"genre":5
 		},
 		{...}
 	]
@@ -266,7 +266,7 @@ Récupérer la fiche d'un film.
 			"id": "1",
 			"title": "X-men",
 			"cover":"http://domain.com/cover.png",
-			"genre":"action"
+			"genre":3
 		}
 	]
 }
@@ -287,6 +287,31 @@ Supprimer la fiche d'un film.
 
 Rechercher un film ou un utilisateur.
 
+### Genre
+
+#### GET /genres
+
+Récupérer la liste de tous les genres de film.
+
+```
+{
+	"data": [
+		{
+			"id": 1,
+			"name": "drama",
+		},
+		{
+			"id": 2,
+			"name": "comedy",
+		},
+		{
+			"id": 3,
+			"name": "action",
+		},
+		{...}
+	]
+}
+```
 
 ## Représentations
 
