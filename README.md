@@ -1,8 +1,14 @@
 # API
 
-## Description
+## Pré-requis
 
-* L'API possède un système de versionning de type "/v1", à ajouter avant chaque URI.   
+### Version
+À ajouter avant chaque URI.
+
+```
+/v1
+```
+   
 
 ## Endpoints
 ### Users 
@@ -12,7 +18,7 @@ Récupérer la liste des utilisateurs.
 
 ```
 {
-	"data": [
+	"data":
 		{
 			"id": "1",
 			"username": "Maëlle"
@@ -35,7 +41,9 @@ Récupérer la liste des utilisateurs.
 
 Créer un utilisateur.
 
-** Data : ** (string) username.
+| Params | Type | Value |
+| ------ | ---- | ----- |
+| username | string | | 
 
 #### GET /users/:user_id
 
@@ -64,7 +72,9 @@ Récupérer le profil d'un utilisateur.
 
 Mettre à jour le profil de l'utilisateur.
 
-** Data : ** (string) username.
+| Params | Type | Value |
+| ------ | ---- | ----- |
+| username | string | |
 
 #### DELETE /users/:user_id
 
@@ -259,7 +269,11 @@ Récupérer la liste de tous les films.
 
 Ajouter un film.
 
-** Datas : ** (string) title, (url) cover, (string) genre.   
+| Params | Type | Value |
+| ------ | ---- | ----- |
+| title | string | | 
+| cover | string | | 
+| genre | int | ID Genre | 
 
 #### GET /movies/:movie_id
 
@@ -283,7 +297,11 @@ Récupérer la fiche d'un film.
 
 Mettre à jour la fiche d'un film.
 
-** Datas : ** (string) title, (url) cover, (string) genre. 
+| Params | Type | Value |
+| ------ | ---- | ----- |
+| title | string | | 
+| cover | string | | 
+| genre | int | ID Genre |  
 
 #### DELETE /movies/:movie_id
 
