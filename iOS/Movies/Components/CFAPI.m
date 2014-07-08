@@ -41,7 +41,6 @@
     NSString *endpoint = [NSString stringWithFormat:@"%@/movies", kAPIUrl];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager GET:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *data = responseObject;
@@ -75,7 +74,6 @@
     NSString *endpoint = [NSString stringWithFormat:@"%@/users", kAPIUrl];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager GET:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *data = responseObject;
@@ -109,7 +107,6 @@
     NSString *endpoint = [NSString stringWithFormat:@"%@/genres", kAPIUrl];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager GET:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *data = responseObject;
@@ -143,7 +140,6 @@
     NSString *endpoint = [NSString stringWithFormat:@"%@/movies", kAPIUrl];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    //manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager POST:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *data = responseObject;
@@ -160,6 +156,26 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if([self.delegate respondsToSelector:@selector(apiPostingMovieFailedWithError:)]){
             [self.delegate apiPostingMovieFailedWithError:error];
+        }
+    }];
+}
+
+- (void)deleteMovie:(Movie *)movie
+{
+    NSDictionary *params;
+    
+    NSString *endpoint = [NSString stringWithFormat:@"%@/movies/%@", kAPIUrl, [movie.movieId stringValue]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager DELETE:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if([self.delegate respondsToSelector:@selector(apiDeletingMovieSuccess)]){
+            [self.delegate apiDeletingMovieSuccess];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if([self.delegate respondsToSelector:@selector(apiDeletingMovieFailedWithError:)]){
+            [self.delegate apiDeletingMovieFailedWithError:error];
         }
     }];
 }

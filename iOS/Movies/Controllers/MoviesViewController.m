@@ -9,6 +9,7 @@
 #import "MoviesViewController.h"
 #import "MovieCollectionCell.h"
 #import "AddMovieViewController.h"
+#import "MovieViewController.h"
 #import "CFAPI.h"
 
 @interface MoviesViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AddMovieDelegate, CFAPIDelegate>
@@ -96,6 +97,14 @@
     return kMovieCollectionCellSize;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    
+    MovieViewController *movieVC = [[MovieViewController alloc] initWithMovie:(Movie *)self.data[indexPath.row]];
+    [self.navigationController pushViewController:movieVC animated:YES];
+}
+
 
 #pragma mark - Refresh Control
 - (void)refreshControlAction
@@ -119,6 +128,7 @@
     
     [self.refreshControl endRefreshing];
 }
+
 
 #pragma mark - Add Movie
 - (void)addMovieAction

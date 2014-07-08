@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Movie.h"
 
 @interface MovieViewController : UIViewController
+
+- (id)initWithMovie:(Movie *)movie;
 
 @end

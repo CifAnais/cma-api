@@ -25,6 +25,9 @@
 
 - (void)apiPostingMovieSuccess:(Movie *)movie;
 - (void)apiPostingMovieFailedWithError:(NSError *)error;
+
+- (void)apiDeletingMovieSuccess;
+- (void)apiDeletingMovieFailedWithError:(NSError *)error;
 @end
 
 
@@ -39,4 +42,5 @@
 - (void)fetchGenres;
 
 - (void)postMovie:(Movie *)movie Genre:(Genre *)genre;
+- (void)deleteMovie:(Movie *)movie;
 @end
