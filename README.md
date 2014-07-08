@@ -45,7 +45,7 @@ Créer un utilisateur.
 | ------ | ---- | ----- |
 | username | string | | 
 
-** Réponse **
+**Réponse**
 
 ```
 {
@@ -90,7 +90,7 @@ Mettre à jour le profil de l'utilisateur.
 | ------ | ---- | ----- |
 | username | string | |
 
-** Réponse **
+**Réponse**
 
 ```
 {
@@ -310,7 +310,7 @@ Ajouter un film.
 | cover | string | | 
 | genre | int | ID Genre | 
 
-** Réponse **
+**Réponse**
 
 ```
 {
@@ -354,7 +354,7 @@ Mettre à jour la fiche d'un film.
 | cover | string | | 
 | genre | int | ID Genre |  
 
-** Réponse **
+**Réponse**
 
 ```
 {
@@ -383,7 +383,7 @@ Rechercher un film ou un utilisateur.
 | q | string | |
 | type | string | **movies** ou **users** |
 
-** Réponse **
+**Réponse**
 
 ```
 {
