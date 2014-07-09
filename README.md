@@ -49,12 +49,15 @@ Créer un utilisateur.
 
 ```
 {
-	"data": {
-		"id": "20",
-		"username": "Clément"
-	}
+    "data": {
+        "id": 20,
+        "username": "Clément",
+        "likes": 0,
+        "dislikes": 0,
+        "watched": 0,
+        "watchlist": 0
+    }
 }
-
 ```
 
 #### GET /users/:user_id
