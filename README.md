@@ -470,3 +470,12 @@ Récupérer la liste de tous les genres de film.
 - GET /users/:user_id/watchlist
 - POST /users/:user_id/watchlist/:movie_id
 - DELETE /users/:user_id/watchlist/:movie_id
+
+
+# iOS Example
+## Pré-requis
+Remplacez la valeur de la constante ```kAPIUrl``` par votre API
+
+```
+iOS/Movies/Constants.h
+```
