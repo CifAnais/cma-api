@@ -17,6 +17,14 @@
 @property (nonatomic, strong) UIImageView *coverImageView;
 @property (nonatomic, strong) UIToolbar *postToolBar;
 @property (nonatomic, strong) UIToolbar *deleteToolBar;
+@property (nonatomic, strong) UIBarButtonItem *postLikeButtonItem;
+@property (nonatomic, strong) UIBarButtonItem *postDislikeButtonItem;
+@property (nonatomic, strong) UIBarButtonItem *postWatchedButtonItem;
+@property (nonatomic, strong) UIBarButtonItem *postWatchlistButtonItem;
+@property (nonatomic, strong) UIBarButtonItem *deleteLikeButtonItem;
+@property (nonatomic, strong) UIBarButtonItem *deleteDislikeButtonItem;
+@property (nonatomic, strong) UIBarButtonItem *deleteWatchedButtonItem;
+@property (nonatomic, strong) UIBarButtonItem *deleteWatchlistButtonItem;
 
 @end
 
@@ -57,25 +65,24 @@
     if(self.movie.coverURL){
         [self downloadImage:self.movie.coverURL];
     }
-    
-    self.postToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, self.view.height - 137.0, self.view.width, 44.0)];
-    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *postLike = [[UIBarButtonItem alloc] initWithTitle:@"Like" style:0 target:nil action:nil];
-    UIBarButtonItem *postDislike = [[UIBarButtonItem alloc] initWithTitle:@"Dislike" style:0 target:nil action:nil];
-    UIBarButtonItem *postWatched = [[UIBarButtonItem alloc] initWithTitle:@"Watched" style:0 target:nil action:nil];
-    UIBarButtonItem *postWatchlist = [[UIBarButtonItem alloc] initWithTitle:@"Watchlist" style:0 target:nil action:nil];
 
-    NSArray *postItems = @[flexibleSpace, postLike, postDislike, postWatched, postWatchlist, flexibleSpace];
-    [self.postToolBar setItems:postItems];
+    UIBarButtonItem *barSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+
+    self.postLikeButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Like" style:0 target:self action:@selector(postLikeAction)];
+    self.postDislikeButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Dislike" style:0 target:self action:@selector(postDislikeAction)];
+    self.postWatchedButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Watched" style:0 target:self action:@selector(postWatchedAction)];
+    self.postWatchlistButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Watchlist" style:0 target:self action:@selector(postWatchlistAction)];
+    
+    self.deleteLikeButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:0 target:self action:@selector(deleteLikeAction)];
+    self.deleteDislikeButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:0 target:self action:@selector(deleteDislikeAction)];
+    self.deleteWatchedButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:0 target:self action:@selector(deleteWatchedAction)];
+    self.deleteWatchlistButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:0 target:self action:@selector(deleteWatchlistAction)];
+
+    self.postToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, self.view.height - 137.0, self.view.width, 44.0)];
+    [self.postToolBar setItems:@[barSpace, self.postLikeButtonItem, self.postDislikeButtonItem, self.postWatchedButtonItem, self.postWatchlistButtonItem, barSpace]];
     
     self.deleteToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, self.view.height - 93.0, self.view.width, 44.0)];
-    UIBarButtonItem *deleteLike = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:0 target:nil action:nil];
-    UIBarButtonItem *deleteDislike = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:0 target:nil action:nil];
-    UIBarButtonItem *deleteWatched = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:0 target:nil action:nil];
-    UIBarButtonItem *deleteWatchlist = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:0 target:nil action:nil];
-    NSArray *deleteItems = @[flexibleSpace, deleteLike, deleteDislike, deleteWatched, deleteWatchlist, flexibleSpace];
-    [self.deleteToolBar setItems:deleteItems];
-
+    [self.deleteToolBar setItems:@[barSpace, self.deleteLikeButtonItem, barSpace, self.deleteDislikeButtonItem, barSpace, self.deleteWatchedButtonItem, barSpace, self.deleteWatchlistButtonItem, barSpace]];
     
     [CFAPI shared].delegate = self;
 }
@@ -132,15 +139,105 @@
 }
 
 
+#pragma mark - Post Actions
+- (void)postLikeAction
+{
+    [[CFAPI shared] postUserLike:[CFUser shared].user movie:self.movie];
+}
+
+- (void)postDislikeAction
+{
+    [[CFAPI shared] postUserDislike:[CFUser shared].user movie:self.movie];
+}
+
+- (void)postWatchedAction
+{
+    [[CFAPI shared] postUserWatched:[CFUser shared].user movie:self.movie];
+}
+
+- (void)postWatchlistAction
+{
+    [[CFAPI shared] postUserWatchlist:[CFUser shared].user movie:self.movie];
+}
+
+#pragma mark - Delete Actions
+- (void)deleteLikeAction
+{
+    [[CFAPI shared] deleteUserLike:[CFUser shared].user movie:self.movie];
+}
+
+- (void)deleteDislikeAction
+{
+    [[CFAPI shared] deleteUserDislike:[CFUser shared].user movie:self.movie];
+}
+
+- (void)deleteWatchedAction
+{
+    [[CFAPI shared] deleteUserWatched:[CFUser shared].user movie:self.movie];
+}
+
+- (void)deleteWatchlistAction
+{
+    [[CFAPI shared] deleteUserWatchlist:[CFUser shared].user movie:self.movie];
+}
+
+
 #pragma mark - CFAPI Delegate
 - (void)apiDeleteMovieSuccess
 {
     [[[UIAlertView alloc] initWithTitle:@"Success" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
 }
 
+- (void)apiPostUserLikeSuccess
+{
+    [self alertViewSuccessWithTitle:@"Like"];
+}
+
+- (void)apiPostUserDislikeSuccess
+{
+    [self alertViewSuccessWithTitle:@"Dislike"];
+}
+
+- (void)apiPostUserWatchedSuccess
+{
+    [self alertViewSuccessWithTitle:@"Watched"];
+}
+
+- (void)apiPostUserWatchlistSuccess
+{
+    [self alertViewSuccessWithTitle:@"Watchlist"];
+}
+
+- (void)apiDeleteUserLikeSuccess
+{
+    [self alertViewSuccessWithTitle:@"DELETE Like"];
+}
+
+- (void)apiDeleteUserDislikeSuccess
+{
+    [self alertViewSuccessWithTitle:@"DELETE Dislike"];
+}
+
+- (void)apiDeleteUserWatchedSuccess
+{
+    [self alertViewSuccessWithTitle:@"DELETE Watched"];
+}
+
+- (void)apiDeleteUserWatchlistSuccess
+{
+    [self alertViewSuccessWithTitle:@"DELETE Watchlist"];
+}
+
 - (void)apiDeletingMovieFailedWithError:(NSError *)error
 {
     [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+}
+
+
+#pragma mark - Success
+- (void)alertViewSuccessWithTitle:(NSString *)title
+{
+    [[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@ success", title] message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
 }
 
 @end

@@ -210,6 +210,8 @@
     }];
 }
 
+
+#pragma mark - User Like Endpoints
 - (void)fetchUserLikes:(User *)user
 {
     NSDictionary *params;
@@ -246,6 +248,40 @@
     }];
 }
 
+- (void)postUserLike:(User *)user movie:(Movie *)movie
+{
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users/%@/likes/%@", kAPIUrl, [user.userId stringValue], [movie.movieId stringValue]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:endpoint parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if([self.delegate respondsToSelector:@selector(apiPostUserLikeSuccess)]){
+            [self.delegate apiPostUserLikeSuccess];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    }];
+}
+
+- (void)deleteUserLike:(User *)user movie:(Movie *)movie
+{
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users/%@/likes/%@", kAPIUrl, [user.userId stringValue], [movie.movieId stringValue]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager DELETE:endpoint parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if([self.delegate respondsToSelector:@selector(apiDeleteUserLikeSuccess)]){
+            [self.delegate apiDeleteUserLikeSuccess];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    }];
+}
+
+
+#pragma mark - User Dislike Endpoints
 - (void)fetchUserDislikes:(User *)user
 {
     NSDictionary *params;
@@ -282,6 +318,40 @@
     }];
 }
 
+- (void)postUserDislike:(User *)user movie:(Movie *)movie
+{
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users/%@/dislikes/%@", kAPIUrl, [user.userId stringValue], [movie.movieId stringValue]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:endpoint parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if([self.delegate respondsToSelector:@selector(apiPostUserDislikeSuccess)]){
+            [self.delegate apiPostUserDislikeSuccess];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    }];
+}
+
+- (void)deleteUserDislike:(User *)user movie:(Movie *)movie
+{
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users/%@/dislikes/%@", kAPIUrl, [user.userId stringValue], [movie.movieId stringValue]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager DELETE:endpoint parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if([self.delegate respondsToSelector:@selector(apiDeleteUserDislikeSuccess)]){
+            [self.delegate apiDeleteUserDislikeSuccess];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    }];
+}
+
+
+#pragma mark - User Watched Endpoints
 - (void)fetchUserWatched:(User *)user
 {
     NSDictionary *params;
@@ -318,6 +388,40 @@
     }];
 }
 
+- (void)postUserWatched:(User *)user movie:(Movie *)movie
+{
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users/%@/watched/%@", kAPIUrl, [user.userId stringValue], [movie.movieId stringValue]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:endpoint parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if([self.delegate respondsToSelector:@selector(apiPostUserWatchedSuccess)]){
+            [self.delegate apiPostUserWatchedSuccess];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    }];
+}
+
+- (void)deleteUserWatched:(User *)user movie:(Movie *)movie
+{
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users/%@/watched/%@", kAPIUrl, [user.userId stringValue], [movie.movieId stringValue]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager DELETE:endpoint parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if([self.delegate respondsToSelector:@selector(apiDeleteUserWatchedSuccess)]){
+            [self.delegate apiDeleteUserWatchedSuccess];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    }];
+}
+
+
+#pragma mark - User Watchlist Endpoints
 - (void)fetchUserWatchlist:(User *)user
 {
     NSDictionary *params;
@@ -351,6 +455,39 @@
         if([self.delegate respondsToSelector:@selector(apiFetchUserMoviesError)]){
             [self.delegate apiFetchUserMoviesError];
         }
+    }];
+}
+
+- (void)postUserWatchlist:(User *)user movie:(Movie *)movie
+{
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users/%@/watchlist/%@", kAPIUrl, [user.userId stringValue], [movie.movieId stringValue]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:endpoint parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if([self.delegate respondsToSelector:@selector(apiPostUserWatchlistSuccess)]){
+            [self.delegate apiPostUserWatchlistSuccess];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    }];
+
+}
+
+- (void)deleteUserWatchlist:(User *)user movie:(Movie *)movie
+{
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users/%@/watchlist/%@", kAPIUrl, [user.userId stringValue], [movie.movieId stringValue]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager DELETE:endpoint parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if([self.delegate respondsToSelector:@selector(apiDeleteUserWatchlistSuccess)]){
+            [self.delegate apiDeleteUserWatchlistSuccess];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
     }];
 }
 

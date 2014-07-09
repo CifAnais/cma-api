@@ -15,24 +15,33 @@
 
 @optional
 - (void)apiFetchUsers:(NSArray *)users;
+- (void)apiFetchGenres:(NSArray *)genres;
+- (void)apiFetchMovies:(NSArray *)movies;
 
 - (void)apiFetchUser:(User *)user;
 - (void)apiFetchUserLikes:(NSArray *)movies;
 - (void)apiFetchUserDislikes:(NSArray *)movies;
 - (void)apiFetchUserWatched:(NSArray *)movies;
 - (void)apiFetchUserWatchlist:(NSArray *)movies;
-
 - (void)apiFetchUserMoviesError;
 
 - (void)apiPostUserSuccess:(User *)user;
 - (void)apiDeleteUserSuccess;
 
-- (void)apiFetchGenres:(NSArray *)genres;
-
-- (void)apiFetchMovies:(NSArray *)movies;
-
 - (void)apiPostMovieSuccess:(Movie *)movie;
 - (void)apiDeleteMovieSuccess;
+
+- (void)apiPostUserLikeSuccess;
+- (void)apiDeleteUserLikeSuccess;
+
+- (void)apiPostUserDislikeSuccess;
+- (void)apiDeleteUserDislikeSuccess;
+
+- (void)apiPostUserWatchedSuccess;
+- (void)apiDeleteUserWatchedSuccess;
+
+- (void)apiPostUserWatchlistSuccess;
+- (void)apiDeleteUserWatchlistSuccess;
 @end
 
 
@@ -52,10 +61,21 @@
 - (void)fetchUserWatched:(User *)user;
 - (void)fetchUserWatchlist:(User *)user;
 
+- (void)postUserLike:(User *)user movie:(Movie *)movie;
+- (void)deleteUserLike:(User *)user movie:(Movie *)movie;
+
+- (void)postUserDislike:(User *)user movie:(Movie *)movie;
+- (void)deleteUserDislike:(User *)user movie:(Movie *)movie;
+
+- (void)postUserWatched:(User *)user movie:(Movie *)movie;
+- (void)deleteUserWatched:(User *)user movie:(Movie *)movie;
+
+- (void)postUserWatchlist:(User *)user movie:(Movie *)movie;
+- (void)deleteUserWatchlist:(User *)user movie:(Movie *)movie;
+
 - (void)postMovie:(Movie *)movie Genre:(Genre *)genre;
 - (void)deleteMovie:(Movie *)movie;
 
 - (void)postUser:(User *)user;
 - (void)deleteUser:(User *)user;
-
 @end
