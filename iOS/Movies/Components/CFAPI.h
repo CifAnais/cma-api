@@ -14,20 +14,18 @@
 @protocol CFAPIDelegate <NSObject>
 
 @optional
-- (void)apiFetchingMovies:(NSArray *)movies;
-- (void)apiFetchingMoviesFailedWithError:(NSError *)error;
-
 - (void)apiFetchingUsers:(NSArray *)users;
-- (void)apiFetchingUsersFailedWithError:(NSError *)error;
+
+- (void)apiFetchingUser:(User *)user;
+- (void)apiPostingUserSuccess:(User *)user;
+- (void)apiDeletingUserSuccess;
 
 - (void)apiFetchingGenres:(NSArray *)genres;
-- (void)apiFetchingGenresFailedWithError:(NSError *)error;
+
+- (void)apiFetchingMovies:(NSArray *)movies;
 
 - (void)apiPostingMovieSuccess:(Movie *)movie;
-- (void)apiPostingMovieFailedWithError:(NSError *)error;
-
 - (void)apiDeletingMovieSuccess;
-- (void)apiDeletingMovieFailedWithError:(NSError *)error;
 @end
 
 

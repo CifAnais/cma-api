@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "CFUser.h"
 
 @interface ProfileViewController ()
 
@@ -28,6 +29,15 @@
     
     self.navigationItem.title = @"Profile";
     self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if([CFUser shared].user){
+        self.title = [CFUser shared].user.username;
+    }
 }
 
 - (void)didReceiveMemoryWarning

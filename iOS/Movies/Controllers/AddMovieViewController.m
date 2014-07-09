@@ -21,7 +21,6 @@ static NSString *kAddMovieCellIdentifier = @"kAddMovieCellIdentifier";
 @property (nonatomic, strong) Movie *movie;
 @property (nonatomic, strong) Genre *genre;
 
-
 @end
 
 @implementation AddMovieViewController
