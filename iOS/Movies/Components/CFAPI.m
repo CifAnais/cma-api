@@ -166,6 +166,25 @@
     }];
 }
 
+- (void)deleteUser:(User *)user
+{
+    NSDictionary *params;
+    
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users/%@", kAPIUrl, [user.userId stringValue]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager DELETE:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if([self.delegate respondsToSelector:@selector(apiDeleteUserSuccess)]){
+            [self.delegate apiDeleteUserSuccess];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    }];
+
+}
+
 - (void)fetchUser:(User *)user
 {
     NSDictionary *params;

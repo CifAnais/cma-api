@@ -157,4 +157,9 @@ typedef NS_ENUM(NSInteger, UserCellType) {
     [self.tableView reloadData];
 }
 
+- (void)apiDeleteUserSuccess
+{
+    [[[UIAlertView alloc] initWithTitle:@"Success" message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+}
+
 @end
