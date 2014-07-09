@@ -1,19 +1,19 @@
 //
-//  ExploreUsersViewController.m
+//  UsersViewController.m
 //  Movies
 //
 //  Created by Aymeric Gallissot on 07/07/2014.
 //  Copyright (c) 2014 Cifacom. All rights reserved.
 //
 
-#import "ExploreUsersViewController.h"
+#import "UsersViewController.h"
 #import "UserViewController.h"
 #import "CFAPI.h"
 #import "User.h"
 
 static NSString *kExploreUserCellIdentifier = @"kExploreUserCellIdentifier";
 
-@interface ExploreUsersViewController () <UITableViewDataSource, UITableViewDelegate, CFAPIDelegate>
+@interface UsersViewController () <UITableViewDataSource, UITableViewDelegate, CFAPIDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
@@ -21,7 +21,7 @@ static NSString *kExploreUserCellIdentifier = @"kExploreUserCellIdentifier";
 
 @end
 
-@implementation ExploreUsersViewController
+@implementation UsersViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,6 +40,7 @@ static NSString *kExploreUserCellIdentifier = @"kExploreUserCellIdentifier";
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
@@ -94,6 +95,11 @@ static NSString *kExploreUserCellIdentifier = @"kExploreUserCellIdentifier";
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     cell.textLabel.text = ((User *)self.data[indexPath.row]).username;
+    
+    CALayer *border = [[CALayer alloc] init];
+    border.frame = CGRectMake(0.0, cell.height-1.0, self.view.width, 1.0);
+    border.backgroundColor = [UIColor colorWithHexString:@"eeeeee"].CGColor;
+    [cell.layer addSublayer:border];
     
     return cell;
 }

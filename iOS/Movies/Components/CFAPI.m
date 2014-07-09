@@ -33,7 +33,7 @@
 }
 
 
-#pragma mark - Endpoints
+#pragma mark - Movie Endpoints
 - (void)fetchMovies
 {
     NSDictionary *params;
@@ -57,68 +57,6 @@
             
             if([self.delegate respondsToSelector:@selector(apiFetchMovies:)]){
                 [self.delegate apiFetchMovies:movies];
-            }
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
-    }];
-}
-
-- (void)fetchUsers
-{
-    NSDictionary *params;
-    
-    NSString *endpoint = [NSString stringWithFormat:@"%@/users", kAPIUrl];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSDictionary *data = responseObject;
-        
-        if(data[@"data"]){
-            
-            __block NSMutableArray *users = [[NSMutableArray alloc] init];
-            
-            [(NSArray *)data[@"data"] enumerateObjectsUsingBlock:^(id objUser, NSUInteger idx, BOOL *stop) {
-                if([objUser isKindOfClass:[NSDictionary class]]){
-                    [users addObject:[User parserUser:objUser]];
-                }
-            }];
-            
-            if([self.delegate respondsToSelector:@selector(apiFetchUsers:)]){
-                [self.delegate apiFetchUsers:users];
-            }
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
-    }];
-}
-
-- (void)fetchGenres
-{
-    NSDictionary *params;
-    
-    NSString *endpoint = [NSString stringWithFormat:@"%@/genres", kAPIUrl];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSDictionary *data = responseObject;
-        
-        if(data[@"data"]){
-            
-            __block NSMutableArray *genres = [[NSMutableArray alloc] init];
-            
-            [(NSArray *)data[@"data"] enumerateObjectsUsingBlock:^(id objGenre, NSUInteger idx, BOOL *stop) {
-                if([objGenre isKindOfClass:[NSDictionary class]]){
-                    [genres addObject:[Genre parserGenre:objGenre]];
-                }
-            }];
-            
-            if([self.delegate respondsToSelector:@selector(apiFetchGenres:)]){
-                [self.delegate apiFetchGenres:genres];
             }
         }
         
@@ -170,6 +108,39 @@
     }];
 }
 
+
+#pragma mark - User Endpoints
+- (void)fetchUsers
+{
+    NSDictionary *params;
+    
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users", kAPIUrl];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *data = responseObject;
+        
+        if(data[@"data"]){
+            
+            __block NSMutableArray *users = [[NSMutableArray alloc] init];
+            
+            [(NSArray *)data[@"data"] enumerateObjectsUsingBlock:^(id objUser, NSUInteger idx, BOOL *stop) {
+                if([objUser isKindOfClass:[NSDictionary class]]){
+                    [users addObject:[User parserUser:objUser]];
+                }
+            }];
+            
+            if([self.delegate respondsToSelector:@selector(apiFetchUsers:)]){
+                [self.delegate apiFetchUsers:users];
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    }];
+}
+
 - (void)postUser:(User *)user
 {
     NSDictionary *params = @{@"username": user.username};
@@ -193,7 +164,208 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
     }];
+}
 
+- (void)fetchUser:(User *)user
+{
+    NSDictionary *params;
+    
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users/%@", kAPIUrl, [user.userId stringValue]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *data = responseObject;
+        
+        if(data[@"data"]){
+            
+            User *user = [User parserUser:(NSDictionary *)data[@"data"]];
+            
+            if([self.delegate respondsToSelector:@selector(apiFetchUser:)]){
+                [self.delegate apiFetchUser:user];
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    }];
+}
+
+- (void)fetchUserLikes:(User *)user
+{
+    NSDictionary *params;
+    
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users/%@/likes", kAPIUrl, [user.userId stringValue]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *data = responseObject;
+        
+        if(data[@"data"]){
+            
+            __block NSMutableArray *movies = [[NSMutableArray alloc] init];
+            
+            [(NSArray *)data[@"data"] enumerateObjectsUsingBlock:^(id objMovie, NSUInteger idx, BOOL *stop) {
+                if([objMovie isKindOfClass:[NSDictionary class]]){
+                    [movies addObject:[Movie parserMovie:objMovie]];
+                }
+            }];
+            
+            
+            if([self.delegate respondsToSelector:@selector(apiFetchUserLikes:)]){
+                [self.delegate apiFetchUserLikes:movies];
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+        
+        if([self.delegate respondsToSelector:@selector(apiFetchUserMoviesError)]){
+            [self.delegate apiFetchUserMoviesError];
+        }
+    }];
+}
+
+- (void)fetchUserDislikes:(User *)user
+{
+    NSDictionary *params;
+    
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users/%@/dislikes", kAPIUrl, [user.userId stringValue]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *data = responseObject;
+        
+        if(data[@"data"]){
+            
+            __block NSMutableArray *movies = [[NSMutableArray alloc] init];
+            
+            [(NSArray *)data[@"data"] enumerateObjectsUsingBlock:^(id objMovie, NSUInteger idx, BOOL *stop) {
+                if([objMovie isKindOfClass:[NSDictionary class]]){
+                    [movies addObject:[Movie parserMovie:objMovie]];
+                }
+            }];
+            
+            
+            if([self.delegate respondsToSelector:@selector(apiFetchUserDislikes:)]){
+                [self.delegate apiFetchUserDislikes:movies];
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+        
+        if([self.delegate respondsToSelector:@selector(apiFetchUserMoviesError)]){
+            [self.delegate apiFetchUserMoviesError];
+        }
+    }];
+}
+
+- (void)fetchUserWatched:(User *)user
+{
+    NSDictionary *params;
+    
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users/%@/watched", kAPIUrl, [user.userId stringValue]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *data = responseObject;
+        
+        if(data[@"data"]){
+            
+            __block NSMutableArray *movies = [[NSMutableArray alloc] init];
+            
+            [(NSArray *)data[@"data"] enumerateObjectsUsingBlock:^(id objMovie, NSUInteger idx, BOOL *stop) {
+                if([objMovie isKindOfClass:[NSDictionary class]]){
+                    [movies addObject:[Movie parserMovie:objMovie]];
+                }
+            }];
+            
+            
+            if([self.delegate respondsToSelector:@selector(apiFetchUserWatched:)]){
+                [self.delegate apiFetchUserWatched:movies];
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+        
+        if([self.delegate respondsToSelector:@selector(apiFetchUserMoviesError)]){
+            [self.delegate apiFetchUserMoviesError];
+        }
+    }];
+}
+
+- (void)fetchUserWatchlist:(User *)user
+{
+    NSDictionary *params;
+    
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users/%@/watchlist", kAPIUrl, [user.userId stringValue]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *data = responseObject;
+        
+        if(data[@"data"]){
+            
+            __block NSMutableArray *movies = [[NSMutableArray alloc] init];
+            
+            [(NSArray *)data[@"data"] enumerateObjectsUsingBlock:^(id objMovie, NSUInteger idx, BOOL *stop) {
+                if([objMovie isKindOfClass:[NSDictionary class]]){
+                    [movies addObject:[Movie parserMovie:objMovie]];
+                }
+            }];
+            
+            
+            if([self.delegate respondsToSelector:@selector(apiFetchUserWatchlist:)]){
+                [self.delegate apiFetchUserWatchlist:movies];
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+        
+        if([self.delegate respondsToSelector:@selector(apiFetchUserMoviesError)]){
+            [self.delegate apiFetchUserMoviesError];
+        }
+    }];
+}
+
+
+#pragma mark - Genre Endpoints
+- (void)fetchGenres
+{
+    NSDictionary *params;
+    
+    NSString *endpoint = [NSString stringWithFormat:@"%@/genres", kAPIUrl];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *data = responseObject;
+        
+        if(data[@"data"]){
+            
+            __block NSMutableArray *genres = [[NSMutableArray alloc] init];
+            
+            [(NSArray *)data[@"data"] enumerateObjectsUsingBlock:^(id objGenre, NSUInteger idx, BOOL *stop) {
+                if([objGenre isKindOfClass:[NSDictionary class]]){
+                    [genres addObject:[Genre parserGenre:objGenre]];
+                }
+            }];
+            
+            if([self.delegate respondsToSelector:@selector(apiFetchGenres:)]){
+                [self.delegate apiFetchGenres:genres];
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    }];
 }
 
 @end

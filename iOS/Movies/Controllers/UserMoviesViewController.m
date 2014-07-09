@@ -1,31 +1,34 @@
 //
-//  MoviesViewController.m
+//  UserMoviesViewController.m
 //  Movies
 //
-//  Created by Aymeric Gallissot on 07/07/2014.
+//  Created by Aymeric Gallissot on 09/07/2014.
 //  Copyright (c) 2014 Cifacom. All rights reserved.
 //
 
-#import "MoviesViewController.h"
+#import "UserMoviesViewController.h"
 #import "MovieCollectionCell.h"
-#import "AddMovieViewController.h"
 #import "MovieViewController.h"
 #import "CFAPI.h"
 
-@interface MoviesViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AddMovieDelegate, CFAPIDelegate>
+@interface UserMoviesViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, CFAPIDelegate>
 
+@property (nonatomic, strong) User *user;
+@property (nonatomic, assign) MoviesType moviesType;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) NSArray *data;
 
 @end
 
-@implementation MoviesViewController
+@implementation UserMoviesViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithUser:(User *)user MoviesType:(MoviesType)moviesType
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
+        self.user = user;
+        self.moviesType = moviesType;
     }
     return self;
 }
@@ -34,10 +37,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"Movies";
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addMovieAction)];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
@@ -54,7 +54,23 @@
     [self.collectionView addSubview:self.refreshControl];
     
     [CFAPI shared].delegate = self;
-	[[CFAPI shared] fetchMovies];
+    
+    if(self.moviesType == MoviesTypeLikes){
+        self.title = @"Likes";
+        [[CFAPI shared] fetchUserLikes:self.user];
+    }
+    else if(self.moviesType == MoviesTypeDislikes){
+        self.title = @"Dislikes";
+        [[CFAPI shared] fetchUserDislikes:self.user];
+    }
+    else if(self.moviesType == MoviesTypeWatched){
+        self.title = @"Watched";
+        [[CFAPI shared] fetchUserWatched:self.user];
+    }
+    else if(self.moviesType == MoviesTypeWishlist){
+        self.title = @"Watchlist";
+        [[CFAPI shared] fetchUserWatchlist:self.user];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -109,12 +125,23 @@
 #pragma mark - Refresh Control
 - (void)refreshControlAction
 {
-    [[CFAPI shared] fetchMovies];
+    [[CFAPI shared] fetchUserLikes:self.user];
+    if(self.moviesType == MoviesTypeLikes){
+        [[CFAPI shared] fetchUserLikes:self.user];
+    }
+    else if(self.moviesType == MoviesTypeDislikes){
+        [[CFAPI shared] fetchUserDislikes:self.user];
+    }
+    else if(self.moviesType == MoviesTypeWatched){
+        [[CFAPI shared] fetchUserWatched:self.user];
+    }
+    else if(self.moviesType == MoviesTypeWishlist){
+        [[CFAPI shared] fetchUserWatchlist:self.user];
+    }
 }
 
-
 #pragma mark - CFAPI Delegate
-- (void)apiFetchMovies:(NSArray *)movies
+- (void)apiFetchUserLikes:(NSArray *)movies
 {
     self.data = movies;
     
@@ -122,28 +149,33 @@
     [self.collectionView reloadData];
 }
 
-- (void)apiFetchingMoviesFailedWithError:(NSError *)error
-{    
-    [self.refreshControl endRefreshing];
-}
-
-
-#pragma mark - Add Movie
-- (void)addMovieAction
+- (void)apiFetchUserDislikes:(NSArray *)movies
 {
-    AddMovieViewController *addMovieVC = [[AddMovieViewController alloc] init];
-    addMovieVC.delegate = self;
-    UINavigationController *addMovieNav = [[UINavigationController alloc] initWithRootViewController:addMovieVC];
+    self.data = movies;
     
-    [self.tabBarController presentViewController:addMovieNav animated:YES completion:^{}];
+    [self.refreshControl endRefreshing];
+    [self.collectionView reloadData];
 }
 
-
-#pragma mark - AddMovie Delegate
-- (void)addMovieSuccess
+- (void)apiFetchUserWatched:(NSArray *)movies
 {
-    [CFAPI shared].delegate = self;
-    [[CFAPI shared] fetchMovies];
+    self.data = movies;
+    
+    [self.refreshControl endRefreshing];
+    [self.collectionView reloadData];
+}
+
+- (void)apiFetchUserWatchlist:(NSArray *)movies
+{
+    self.data = movies;
+    
+    [self.refreshControl endRefreshing];
+    [self.collectionView reloadData];
+}
+
+- (void)apiFetchUserMoviesError
+{
+    [self.refreshControl endRefreshing];
 }
 
 @end

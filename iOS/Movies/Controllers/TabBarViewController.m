@@ -8,7 +8,7 @@
 
 #import "TabBarViewController.h"
 #import "MoviesViewController.h"
-#import "ExploreUsersViewController.h"
+#import "UsersViewController.h"
 #import "ProfileViewController.h"
 
 @interface TabBarViewController ()
@@ -35,17 +35,17 @@
     moviesNav.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     moviesNav.tabBarItem.image = [UIImage imageNamed:@"tabBar-movie-icon"];
     
-    ExploreUsersViewController *exploreVC = [[ExploreUsersViewController alloc] init];
-    UINavigationController *exploreNav = [[UINavigationController alloc] initWithRootViewController:exploreVC];
-    exploreNav.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
-    exploreNav.tabBarItem.image = [UIImage imageNamed:@"tabBar-explore-icon"];
+    UsersViewController *usersVC = [[UsersViewController alloc] init];
+    UINavigationController *usersNav = [[UINavigationController alloc] initWithRootViewController:usersVC];
+    usersNav.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    usersNav.tabBarItem.image = [UIImage imageNamed:@"tabBar-explore-icon"];
     
     ProfileViewController *profileVC = [[ProfileViewController alloc] init];
     UINavigationController *profileNav = [[UINavigationController alloc] initWithRootViewController:profileVC];
     profileNav.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     profileNav.tabBarItem.image = [UIImage imageNamed:@"tabBar-profile-icon"];
     
-    self.viewControllers = @[profileNav, exploreNav, moviesNav];
+    self.viewControllers = @[profileNav, usersNav, moviesNav];
 }
 
 - (void)didReceiveMemoryWarning

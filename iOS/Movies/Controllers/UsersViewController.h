@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExploreUsersViewController : UIViewController
+@interface UsersViewController : UIViewController
 
 @end

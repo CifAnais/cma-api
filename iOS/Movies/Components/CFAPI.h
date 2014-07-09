@@ -17,6 +17,13 @@
 - (void)apiFetchUsers:(NSArray *)users;
 
 - (void)apiFetchUser:(User *)user;
+- (void)apiFetchUserLikes:(NSArray *)movies;
+- (void)apiFetchUserDislikes:(NSArray *)movies;
+- (void)apiFetchUserWatched:(NSArray *)movies;
+- (void)apiFetchUserWatchlist:(NSArray *)movies;
+
+- (void)apiFetchUserMoviesError;
+
 - (void)apiPostUserSuccess:(User *)user;
 - (void)apiDeleteUserSuccess;
 

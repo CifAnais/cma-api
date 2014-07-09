@@ -29,7 +29,7 @@
 		B05506BE196AEC5A00DC105F /* tabBar-movie-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B05506BD196AEC5A00DC105F /* tabBar-movie-icon@2x.png */; };
 		B05506C1196AEDE500DC105F /* tabBar-profile-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B05506BF196AEDE500DC105F /* tabBar-profile-icon@2x.png */; };
 		B05506C2196AEDE500DC105F /* tabBar-explore-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B05506C0196AEDE500DC105F /* tabBar-explore-icon@2x.png */; };
-		B05506C5196AEDFF00DC105F /* ExploreUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05506C4196AEDFF00DC105F /* ExploreUsersViewController.m */; };
+		B05506C5196AEDFF00DC105F /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05506C4196AEDFF00DC105F /* UsersViewController.m */; };
 		B05506C8196AEE2C00DC105F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05506C7196AEE2C00DC105F /* ProfileViewController.m */; };
 		B062FDE9196CA316004366AD /* AddUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B062FDE8196CA316004366AD /* AddUserViewController.m */; };
 		B08A18E0196C43CA00DD547F /* CFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B08A18DF196C43CA00DD547F /* CFUser.m */; };
@@ -37,6 +37,7 @@
 		B08CFAF1196BF090008AFEA6 /* AddMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B08CFAF0196BF090008AFEA6 /* AddMovieViewController.m */; };
 		B08CFAF4196C11BF008AFEA6 /* AddMovieGenreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B08CFAF3196C11BF008AFEA6 /* AddMovieGenreViewController.m */; };
 		B08CFAF7196C11F2008AFEA6 /* Genre.m in Sources */ = {isa = PBXBuildFile; fileRef = B08CFAF6196C11F2008AFEA6 /* Genre.m */; };
+		B0911C32196D72CD002CD670 /* UserMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0911C31196D72CD002CD670 /* UserMoviesViewController.m */; };
 		CD798CD77D3A486FB5635BDF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAAB98C8C5D84FD190629337 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -85,8 +86,8 @@
 		B05506BD196AEC5A00DC105F /* tabBar-movie-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar-movie-icon@2x.png"; sourceTree = "<group>"; };
 		B05506BF196AEDE500DC105F /* tabBar-profile-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar-profile-icon@2x.png"; sourceTree = "<group>"; };
 		B05506C0196AEDE500DC105F /* tabBar-explore-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar-explore-icon@2x.png"; sourceTree = "<group>"; };
-		B05506C3196AEDFF00DC105F /* ExploreUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreUsersViewController.h; sourceTree = "<group>"; };
-		B05506C4196AEDFF00DC105F /* ExploreUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreUsersViewController.m; sourceTree = "<group>"; };
+		B05506C3196AEDFF00DC105F /* UsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersViewController.h; sourceTree = "<group>"; };
+		B05506C4196AEDFF00DC105F /* UsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersViewController.m; sourceTree = "<group>"; };
 		B05506C6196AEE2C00DC105F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		B05506C7196AEE2C00DC105F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		B062FDE7196CA316004366AD /* AddUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddUserViewController.h; sourceTree = "<group>"; };
@@ -101,6 +102,8 @@
 		B08CFAF3196C11BF008AFEA6 /* AddMovieGenreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMovieGenreViewController.m; sourceTree = "<group>"; };
 		B08CFAF5196C11F2008AFEA6 /* Genre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genre.h; sourceTree = "<group>"; };
 		B08CFAF6196C11F2008AFEA6 /* Genre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Genre.m; sourceTree = "<group>"; };
+		B0911C30196D72CD002CD670 /* UserMoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMoviesViewController.h; sourceTree = "<group>"; };
+		B0911C31196D72CD002CD670 /* UserMoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMoviesViewController.m; sourceTree = "<group>"; };
 		D11A4C43D18F42C6813DE9BD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		EAAB98C8C5D84FD190629337 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -237,8 +240,8 @@
 				B03CBF5E196AAD4D00EAAE33 /* MoviesViewController.m */,
 				B03CBF60196AAD5D00EAAE33 /* MovieViewController.h */,
 				B03CBF61196AAD5D00EAAE33 /* MovieViewController.m */,
-				B05506C3196AEDFF00DC105F /* ExploreUsersViewController.h */,
-				B05506C4196AEDFF00DC105F /* ExploreUsersViewController.m */,
+				B05506C3196AEDFF00DC105F /* UsersViewController.h */,
+				B05506C4196AEDFF00DC105F /* UsersViewController.m */,
 				B05506C6196AEE2C00DC105F /* ProfileViewController.h */,
 				B05506C7196AEE2C00DC105F /* ProfileViewController.m */,
 				B08CFAEF196BF090008AFEA6 /* AddMovieViewController.h */,
@@ -249,6 +252,8 @@
 				B08A18E2196C4B4200DD547F /* UserViewController.m */,
 				B062FDE7196CA316004366AD /* AddUserViewController.h */,
 				B062FDE8196CA316004366AD /* AddUserViewController.m */,
+				B0911C30196D72CD002CD670 /* UserMoviesViewController.h */,
+				B0911C31196D72CD002CD670 /* UserMoviesViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0911C32196D72CD002CD670 /* UserMoviesViewController.m in Sources */,
 				B0550674196AB18700DC105F /* User.m in Sources */,
 				B08CFAF7196C11F2008AFEA6 /* Genre.m in Sources */,
 				B03CBF36196AA9E100EAAE33 /* AppDelegate.m in Sources */,
@@ -434,7 +440,7 @@
 				B08CFAF1196BF090008AFEA6 /* AddMovieViewController.m in Sources */,
 				B0550671196AB14D00DC105F /* Movie.m in Sources */,
 				B03CBF5C196AAC6A00EAAE33 /* TabBarViewController.m in Sources */,
-				B05506C5196AEDFF00DC105F /* ExploreUsersViewController.m in Sources */,
+				B05506C5196AEDFF00DC105F /* UsersViewController.m in Sources */,
 				B05506BB196AE53E00DC105F /* MovieCollectionCell.m in Sources */,
 				B062FDE9196CA316004366AD /* AddUserViewController.m in Sources */,
 				B055066E196AAE7B00DC105F /* CFAPI.m in Sources */,

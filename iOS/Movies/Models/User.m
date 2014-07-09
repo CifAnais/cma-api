@@ -17,6 +17,11 @@
     user.userId = objUser[@"id"] ? objUser[@"id"] : nil;
     user.username = objUser[@"username"] ? objUser[@"username"] : nil;
     
+    user.likes = objUser[@"likes"] ? objUser[@"likes"] : nil;
+    user.dislikes = objUser[@"dislikes"] ? objUser[@"dislikes"] : nil;
+    user.watched = objUser[@"watched"] ? objUser[@"watched"] : nil;
+    user.watchlist = objUser[@"watchlist"] ? objUser[@"watchlist"] : nil;
+
     return user;
 }
 
