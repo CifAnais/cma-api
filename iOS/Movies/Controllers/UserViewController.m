@@ -55,6 +55,11 @@ typedef NS_ENUM(NSInteger, UserCellType) {
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.tintColor = [UIColor grayColor];
+    [self.refreshControl addTarget:self action:@selector(refreshControlAction) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+    
     [CFAPI shared].delegate = self;
     [[CFAPI shared] fetchUser:self.user];
 }
@@ -149,12 +154,21 @@ typedef NS_ENUM(NSInteger, UserCellType) {
     [self.navigationController pushViewController:userMovieVC animated:YES];
 }
 
+
+#pragma mark - Refresh Control
+- (void)refreshControlAction
+{
+    [[CFAPI shared] fetchUser:self.user];
+}
+
+
 #pragma mark - CFAPI Delegate
 - (void)apiFetchUser:(User *)user
 {
     self.user = user;
     
     [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
 }
 
 - (void)apiDeleteUserSuccess
