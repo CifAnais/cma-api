@@ -14,18 +14,18 @@
 @protocol CFAPIDelegate <NSObject>
 
 @optional
-- (void)apiFetchingUsers:(NSArray *)users;
+- (void)apiFetchUsers:(NSArray *)users;
 
-- (void)apiFetchingUser:(User *)user;
-- (void)apiPostingUserSuccess:(User *)user;
-- (void)apiDeletingUserSuccess;
+- (void)apiFetchUser:(User *)user;
+- (void)apiPostUserSuccess:(User *)user;
+- (void)apiDeleteUserSuccess;
 
-- (void)apiFetchingGenres:(NSArray *)genres;
+- (void)apiFetchGenres:(NSArray *)genres;
 
-- (void)apiFetchingMovies:(NSArray *)movies;
+- (void)apiFetchMovies:(NSArray *)movies;
 
-- (void)apiPostingMovieSuccess:(Movie *)movie;
-- (void)apiDeletingMovieSuccess;
+- (void)apiPostMovieSuccess:(Movie *)movie;
+- (void)apiDeleteMovieSuccess;
 @end
 
 

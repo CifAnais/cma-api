@@ -55,8 +55,8 @@
                 }
             }];
             
-            if([self.delegate respondsToSelector:@selector(apiFetchingMovies:)]){
-                [self.delegate apiFetchingMovies:movies];
+            if([self.delegate respondsToSelector:@selector(apiFetchMovies:)]){
+                [self.delegate apiFetchMovies:movies];
             }
         }
         
@@ -86,8 +86,8 @@
                 }
             }];
             
-            if([self.delegate respondsToSelector:@selector(apiFetchingUsers:)]){
-                [self.delegate apiFetchingUsers:users];
+            if([self.delegate respondsToSelector:@selector(apiFetchUsers:)]){
+                [self.delegate apiFetchUsers:users];
             }
         }
         
@@ -117,8 +117,8 @@
                 }
             }];
             
-            if([self.delegate respondsToSelector:@selector(apiFetchingGenres:)]){
-                [self.delegate apiFetchingGenres:genres];
+            if([self.delegate respondsToSelector:@selector(apiFetchGenres:)]){
+                [self.delegate apiFetchGenres:genres];
             }
         }
         
@@ -142,8 +142,8 @@
             
             Movie *movie = [Movie parserMovie:(NSDictionary *)data[@"data"]];
             
-            if([self.delegate respondsToSelector:@selector(apiPostingMovieSuccess:)]){
-                [self.delegate apiPostingMovieSuccess:movie];
+            if([self.delegate respondsToSelector:@selector(apiPostMovieSuccess:)]){
+                [self.delegate apiPostMovieSuccess:movie];
             }
         }
         
@@ -161,13 +161,39 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager DELETE:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        if([self.delegate respondsToSelector:@selector(apiDeletingMovieSuccess)]){
-            [self.delegate apiDeletingMovieSuccess];
+        if([self.delegate respondsToSelector:@selector(apiDeleteMovieSuccess)]){
+            [self.delegate apiDeleteMovieSuccess];
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
     }];
+}
+
+- (void)postUser:(User *)user
+{
+    NSDictionary *params = @{@"username": user.username};
+    
+    NSString *endpoint = [NSString stringWithFormat:@"%@/users", kAPIUrl];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:endpoint parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *data = responseObject;
+        
+        if(data[@"data"]){
+            
+            User *user = [User parserUser:(NSDictionary *)data[@"data"]];
+            
+            if([self.delegate respondsToSelector:@selector(apiPostUserSuccess:)]){
+                [self.delegate apiPostUserSuccess:user];
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    }];
+
 }
 
 @end

@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
+@protocol AddUserDelegate <NSObject>
+
+@optional
+- (void)addUserSuccess:(User *)user;
+@end
 
 @interface AddUserViewController : UIViewController
+
+@property (nonatomic, weak) id<AddUserDelegate> delegate;
 
 @end

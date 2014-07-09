@@ -7,9 +7,10 @@
 //
 
 #import "ProfileViewController.h"
+#import "AddUserViewController.h"
 #import "CFUser.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <AddUserDelegate>
 
 @end
 
@@ -29,6 +30,7 @@
     
     self.navigationItem.title = @"Profile";
     self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addUserAction)];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -44,6 +46,26 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UIBarButton
+- (void)addUserAction
+{
+    AddUserViewController *addUserVC = [[AddUserViewController alloc] init];
+    addUserVC.delegate = self;
+    UINavigationController *addUserNav = [[UINavigationController alloc] initWithRootViewController:addUserVC];
+    
+    [self.tabBarController presentViewController:addUserNav animated:YES completion:^{}];
+}
+
+
+#pragma mark - AddUser Delegate
+- (void)addUserSuccess:(User *)user
+{
+    self.title = user.username;
+    self.navigationController.tabBarItem.title = nil;
+    
+    // Reload tableview
 }
 
 @end

@@ -35,9 +35,8 @@ static NSString *kExploreUserCellIdentifier = @"kExploreUserCellIdentifier";
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"Explore";
+    self.navigationItem.title = @"Users";
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addUserAction)];
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -70,13 +69,6 @@ static NSString *kExploreUserCellIdentifier = @"kExploreUserCellIdentifier";
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-#pragma mark - UIBarButton
-- (void)addUserAction
-{
-    
 }
 
 
@@ -123,7 +115,7 @@ static NSString *kExploreUserCellIdentifier = @"kExploreUserCellIdentifier";
 
 
 #pragma mark - CFAPI Delegate
-- (void)apiFetchingUsers:(NSArray *)users
+- (void)apiFetchUsers:(NSArray *)users
 {
     self.data = users;
     

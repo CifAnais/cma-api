@@ -114,7 +114,7 @@
 
 
 #pragma mark - CFAPI Delegate
-- (void)apiFetchingMovies:(NSArray *)movies
+- (void)apiFetchMovies:(NSArray *)movies
 {
     self.data = movies;
     

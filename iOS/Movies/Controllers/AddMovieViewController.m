@@ -240,7 +240,7 @@ static NSString *kAddMovieCellIdentifier = @"kAddMovieCellIdentifier";
 
 
 #pragma mark - CFAPI Delegate
-- (void)apiPostingMovieSuccess:(Movie *)movie
+- (void)apiPostMovieSuccess:(Movie *)movie
 {
     if([self.delegate respondsToSelector:@selector(addMovieSuccess)]){
         [self.delegate addMovieSuccess];
@@ -249,11 +249,6 @@ static NSString *kAddMovieCellIdentifier = @"kAddMovieCellIdentifier";
     self.successAlertView = [[UIAlertView alloc] initWithTitle:@"Success" message:[movie debugDescription] delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     self.successAlertView.delegate = self;
     [self.successAlertView show];
-}
-
-- (void)apiPostingGenreFailedWithError:(NSError *)error
-{
-    [[[UIAlertView alloc] initWithTitle:@"Error" message:[error debugDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
 }
 
 

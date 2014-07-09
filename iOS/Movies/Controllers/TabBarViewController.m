@@ -45,7 +45,7 @@
     profileNav.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     profileNav.tabBarItem.image = [UIImage imageNamed:@"tabBar-profile-icon"];
     
-    self.viewControllers = @[moviesNav, exploreNav, profileNav];
+    self.viewControllers = @[profileNav, exploreNav, moviesNav];
 }
 
 - (void)didReceiveMemoryWarning

@@ -86,7 +86,7 @@
 
 
 #pragma mark - CFAPI Delegate
-- (void)apiDeletingMovieSuccess
+- (void)apiDeleteMovieSuccess
 {
     [[[UIAlertView alloc] initWithTitle:@"Success" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
 }

@@ -108,17 +108,12 @@ static NSString *kAddMovieGenreCellIdentifier = @"kAddMovieGenreCellIdentifier";
 
 
 #pragma mark - CFAPI Delegate
-- (void)apiFetchingGenres:(NSArray *)genres
+- (void)apiFetchGenres:(NSArray *)genres
 {
     self.data = genres;
     
     [self.refreshControl endRefreshing];
     [self.tableView reloadData];
-}
-
-- (void)apiFetchingGenresFailedWithError:(NSError *)error
-{
-    NSLog(@"apiFetchingGenresFailedWithError");
 }
 
 @end
