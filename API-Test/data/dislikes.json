@@ -1,0 +1,14 @@
+[
+	{
+		"id":1,
+		"title": "Palo Alto",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/palo-alto.jpg",
+		"genre":"drama"
+	},
+	{
+		"id":2,
+		"title": "Bell Flower",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/bell-flower.jpg",
+		"genre":1
+	}
+]

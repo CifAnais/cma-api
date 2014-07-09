@@ -1,0 +1,8 @@
+{
+	"id":999,
+	"username":"superuser",
+	"likes": 5,
+	"dislikes": 2,
+	"watched": 7,
+	"watchlist": 3
+}

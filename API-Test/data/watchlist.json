@@ -1,0 +1,20 @@
+[
+	{
+		"id":7,
+		"title": "Coldwater",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/coldwater.jpg",
+		"genre":3
+	},
+	{
+		"id":8,
+		"title": "Lucy",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/lucy.jpg",
+		"genre":1
+	},
+	{
+		"id":9,
+		"title": "Sex Tape",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/sex-tape.jpg",
+		"genre":2
+	}
+]

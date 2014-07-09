@@ -446,4 +446,27 @@ Récupérer la liste de tous les genres de film.
 - GET /genres
 
 ### Users
-- GET /users
+- GET /users 
+- POST /users
+- GET /users/:user_id
+- DELETE /users/:user_id
+
+### User likes
+- GET /users/:user_id/likes
+- POST /users/:user_id/likes/:movie_id  
+- DELETE /users/:user_id/likes/:movie_id  
+
+### User dislikes
+- GET /users/:user_id/dislikes 
+- POST /users/:user_id/dislikes/:movie_id
+- DELETE /users/:user_id/dislikes/:movie_id
+
+### User watched
+- GET /users/:user_id/watched
+- POST /users/:user_id/watched/:movie_id
+- DELETE /users/:user_id/watched/:movie_id
+
+### User watchlist
+- GET /users/:user_id/watchlist
+- POST /users/:user_id/watchlist/:movie_id
+- DELETE /users/:user_id/watchlist/:movie_id

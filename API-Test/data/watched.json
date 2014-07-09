@@ -1,0 +1,44 @@
+[
+	{
+		"id":1,
+		"title": "Palo Alto",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/palo-alto.jpg",
+		"genre":"drama"
+	},
+	{
+		"id":2,
+		"title": "Bell Flower",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/bell-flower.jpg",
+		"genre":1
+	},
+	{
+		"id":3,
+		"title": "Somewhere",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/somewhere.jpg",
+		"genre":2
+	},
+	{
+		"id":4,
+		"title": "Her",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/her.jpg",
+		"genre":4
+	},
+	{
+		"id":5,
+		"title": "Drive",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/drive.jpg",
+		"genre":5
+	},
+	{
+		"id":6,
+		"title": "The Town",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/the-town.jpg",
+		"genre":5
+	},
+	{
+		"id":10,
+		"title": "The Social Network",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/the-social-network.jpg",
+		"genre":3
+	}
+]
