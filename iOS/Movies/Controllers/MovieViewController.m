@@ -8,6 +8,7 @@
 
 #import "MovieViewController.h"
 #import "CFAPI.h"
+#import "CFUser.h"
 #import <SDWebImage/SDWebImageManager.h>
 
 @interface MovieViewController () <CFAPIDelegate>
@@ -64,6 +65,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [CFAPI shared].delegate = self;
+}
 
 #pragma mark - Download Images
 - (void)downloadImage:(NSString *)imageUrl
