@@ -58,5 +58,47 @@
 		"title": "The Social Network",
 		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/the-social-network.jpg",
 		"genre":3
+	},
+	{
+		"id":11,
+		"title": "Bad Boy II",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/bad-boy-2.jpg",
+		"genre":2
+	},
+	{
+		"id":12,
+		"title": "No Pain No Gain",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/no-pain-no-gain.jpg",
+		"genre":1
+	},
+	{
+		"id":13,
+		"title": "Under the Skin",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/under-the-skin.jpg",
+		"genre":3
+	},
+	{
+		"id":14,
+		"title": "Swim Little Fish Swim",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/swim-little-fish-swim.jpg",
+		"genre":2
+	},
+	{
+		"id":15,
+		"title": "Godzilla",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/godzilla.jpg",
+		"genre":6
+	},
+	{
+		"id":16,
+		"title": "Babysitting",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/babysitting.jpg",
+		"genre":2
+	},
+	{
+		"id":17,
+		"title": "Dos au mur",
+		"cover":"http://cma-api.eu01.aws.af.cm/assets/movies/dos-au-mur.jpg",
+		"genre":5
 	}
 ]

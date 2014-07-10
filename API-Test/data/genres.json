@@ -18,5 +18,9 @@
 	{
 		"id":5,
 		"name":"thriller"
+	},
+	{
+		"id":6,
+		"name":"Science fiction"
 	}
 ]
