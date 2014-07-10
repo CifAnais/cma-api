@@ -20,16 +20,12 @@ Récupérer la liste des utilisateurs.
 {
 	"data":[
 		{
-			"id": "1",
+			"id": 1,
 			"username": "Maëlle"
 		},
 		{
-			"id": "2",
+			"id": 2,
 			"username": "Anaïs"
-		},
-		{
-			"id": "3",
-			"username": "Aymeric"
 		},
 		{...}
 	]
@@ -113,13 +109,13 @@ Récupérer la liste des films aimés par l'utilisateur.
 {
 	"data": [
 		{
-			"id": "3",
+			"id": 3,
 			"title": "Jimmy's Hall",
 			"cover":"http://domain.com/cover.png",
 			"genre":2
 		},
 		{
-			"id": "23",
+			"id": 23,
 			"title": "Dragons 2",
 			"cover":"http://domain.com/cover.png",
 			"genre":5
@@ -145,13 +141,13 @@ Récupérer la liste des films que l'utilisateur n'aime pas.
 {
 	"data": [
 		{
-			"id": "3",
+			"id": 3,
 			"title": "Jimmy's Hall",
 			"cover":"http://domain.com/cover.png",
 			"genre":2
 		},
 		{
-			"id": "23",
+			"id": 23,
 			"title": "Dragons 2",
 			"cover":"http://domain.com/cover.png",
 			"genre":5
@@ -177,13 +173,13 @@ Récupérer la liste des films vus par l'utilisateur.
 {
 	"data": [
 		{
-			"id": "3",
+			"id": 3,
 			"title": "Jimmy's Hall",
 			"cover":"http://domain.com/cover.png",
 			"genre":2
 		},
 		{
-			"id": "23",
+			"id": 23,
 			"title": "Dragons 2",
 			"cover":"http://domain.com/cover.png",
 			"genre":5
@@ -210,13 +206,13 @@ Récupérer la liste des films que l'utilisateur aimerait voir.
 {
 	"data": [
 		{
-			"id": "3",
+			"id": 3,
 			"title": "Jimmy's Hall",
 			"cover":"http://domain.com/cover.png",
 			"genre":2
 		},
 		{
-			"id": "23",
+			"id": 23,
 			"title": "Dragons 2",
 			"cover":"http://domain.com/cover.png",
 			"genre":5
@@ -242,7 +238,7 @@ Récupérer la liste des utilisateurs suivis par l'utilisateur.
 {
 	"data": [
 		{
-			"id": "3",
+			"id": 3,
 			"username": "Guillaume"
 		},
 		{
@@ -268,11 +264,11 @@ Action : ne plus suivre un utilisateur.
 {
 	"data": [
 		{
-			"id": "3",
+			"id": 3,
 			"username": "Florian"
 		},
 		{
-			"id": "23",
+			"id": 23,
 			"username": "Esther"
 		},
 		{...}
@@ -290,13 +286,13 @@ Récupérer la liste de tous les films.
 {
 	"data": [
 		{
-			"id": "3",
+			"id": 3,
 			"title": "Jimmy's Hall",
 			"cover":"http://domain.com/cover.png",
 			"genre":2
 		},
 		{
-			"id": "23",
+			"id": 23,
 			"title": "Dragons 2",
 			"cover":"http://domain.com/cover.png",
 			"genre":5
@@ -321,7 +317,7 @@ Ajouter un film.
 ```
 {
 	"data": {
-		"id": "3",
+		"id": 3,
 		"title": "Jimmy's Hall",
 		"cover":"http://domain.com/cover.png",
 		"genre":2
@@ -337,7 +333,7 @@ Récupérer la fiche d'un film.
 ```
 {
 	"data": {
-		"id": "1",
+		"id": 1,
 		"title": "X-men",
 		"cover":"http://domain.com/cover.png",
 		"genre":3
@@ -361,7 +357,7 @@ Mettre à jour la fiche d'un film.
 ```
 {
 	"data": {
-		"id": "3",
+		"id": 3,
 		"title": "Jimmy's Hall",
 		"cover":"http://domain.com/cover.png",
 		"genre":2
@@ -389,13 +385,13 @@ Rechercher un film ou un utilisateur.
 {
 	"data": [
 		{
-			"id": "3",
+			"id": 3,
 			"title": "Jimmy's Hall",
 			"cover":"http://domain.com/cover.png",
 			"genre":2
 		},
 		{
-			"id": "3",
+			"id": 3,
 			"title": "Jimmy's Hall",
 			"cover":"http://domain.com/cover.png",
 			"genre":2
