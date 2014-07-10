@@ -77,7 +77,7 @@ static NSString *kAddMovieGenreCellIdentifier = @"kAddMovieGenreCellIdentifier";
     }
     
     Genre *genre = (Genre *)self.data[indexPath.row];
-    cell.textLabel.text = genre.name;
+    cell.textLabel.text = [genre.name lowercaseString];
     
     if(self.genre){
         if([genre.genreId isEqualToNumber:self.genre.genreId]){
