@@ -242,7 +242,7 @@ Récupérer la liste des utilisateurs suivis par l'utilisateur.
 			"username": "Guillaume"
 		},
 		{
-			"id": "23",
+			"id": 23,
 			"username": "Pierre"
 		},
 		{...}
